@@ -5,16 +5,17 @@ import { Home } from "./components/Home/home";
 import { Club } from "./components/CreateClub/club";
 
 import ResponsiveAppBar from "./components/Navbar/Navbar";
+import { Profile } from "./components/Profile/Profile";
 
 function App() {
   return (
     <div className="App">
-   
-      <ResponsiveAppBar />
+      {/* <ResponsiveAppBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignupSignin />} />
-        <Route path='/club' element={<Club/>} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/club" element={<Club />} />
       </Routes>
     </div>
   );
