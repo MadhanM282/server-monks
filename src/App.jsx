@@ -1,5 +1,5 @@
 
-import './App.css'
+// import './App.css'
 import { SignupSignin } from './components/SignupSignIn/signin'
 import { Route, Routes } from 'react-router'
 import ResponsiveAppBar from './components/Navbar/Navbar';
