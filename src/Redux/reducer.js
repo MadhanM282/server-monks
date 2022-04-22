@@ -1,21 +1,21 @@
-import { SET_EVENTS } from "./actions";
-import { combineReducers } from "redux";
+// import { SET_EVENTS } from "./actions";
+// import { combineReducers } from "redux";
 
 
-const initialState = {
-  allEvents: [],
-};
+// const initialState = {
+//   allEvents: [],
+// };
 
-const setEventReducer = (store = initialState, { type, payload }) => {
-  switch (type) {
-    case SET_EVENTS:
-      return { ...state, allEvents: payload };
+// const setEventReducer = (store = initialState, { type, payload }) => {
+//   switch (type) {
+//     case SET_EVENTS:
+//       return { ...state, allEvents: payload };
     
-    default:
-      return store;
-  }
-};
+//     default:
+//       return store;
+//   }
+// };
 
-export const reducer = combineReducers({
-  setAllEvents: setEventReducer,
-});
+// export const reducer = combineReducers({
+//   setAllEvents: setEventReducer,
+// });

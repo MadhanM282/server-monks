@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setEvents } from "../../Redux/actions";
+import { getClubData } from "../../Redux/Home/clubHomeAction";
 import { EventCard } from "../Card/Card";
 import ResponsiveAppBar from "../Navbar/Navbar";
 
@@ -12,20 +12,46 @@ export const Home = () => {
   const dispatch = useDispatch();
 
 
+  const { clubList, loding, error } = useSelector((store) => store.club);
+  console.log('clubList', clubList);
+
+
+  const [page, setPage] = useState(1);
+
+
+  const [sort, setSort] = useState("asc");
+
+
+  const [filter, setFilter] = useState("");
+
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page, sort, filter]);
 
 
 
   const fetchData = () => {
-    axios
-      .get("https://server-monks-backend.herokuapp.com/clubs")
-      .then((res) => {
-        dispatch(setEvents(res.data));
-      });
+    dispatch(getClubData(page, sort, filter));
   };
-  const data = useSelector((store) => store.setAllEvents.allEvents);
+
+  const handleChangePage = (event, value) => {
+    setPage(value);
+  };
+
+
+  const handleChangeType = (e, value) => {
+    setFilter(value);
+  }
+
+  const handleChangeSort = (e) => {
+    if (e.target.value === "asc") {
+      setSort("asc")
+    }
+    if (e.target.value === "desc") {
+      setSort("desc")
+    }
+  }
 
   return (
     <div style={{ backgroundColor: "#AB46D2" }}>
@@ -34,7 +60,7 @@ export const Home = () => {
       <br />
       <br />
       <br />
-      {!data ? (
+      {!clubList.clubs ? (
         <div>...Loading</div>
       ) : (
         <div
@@ -45,7 +71,7 @@ export const Home = () => {
             gap: "20px",
           }}
         >
-          {data && data.map((event) => {
+          {clubList.clubs && clubList.clubs.map((event) => {
             return <EventCard key={event._id} event={event} />;
           })}
         </div>

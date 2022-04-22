@@ -19,12 +19,12 @@ export const logoutUser = () => ({ type: LOGOUT})
 export const loginSuccessData = (data,toast ,navigate ) => (dispatch) => {
 
     dispatch(loginLoding());
-    axios.post("https://grubhub-backend-clone.herokuapp.com/login", data).then(({ data }) => {
+    axios.post("https://server-monks-backend.herokuapp.com/login", data).then(({ data }) => {
         dispatch(loginSuccess(data))
         toast.success("Logged in Successfully", {
             position: "top-center",
         });
-        setTimeout(() => { navigate("/todoHome"); }, 3000)
+        setTimeout(() => { navigate("/"); }, 3000)
     }).catch((err) => {
         console.log('err', err.massage);
         dispatch(loginError())
