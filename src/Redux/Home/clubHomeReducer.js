@@ -5,7 +5,8 @@ const initialState = {
     clubList: [],
     loding: false,
     error: false,
-    updateList: [] 
+    updateList: [],
+    totalpages: 0
 }
 
 export const clubHomeReducer = (store = initialState, { type, payload }) => {

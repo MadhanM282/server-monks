@@ -7,10 +7,12 @@ import { Profile } from "./components/Profile/Profile";
 import { NotFound } from "./components/NotFound";
 import { MainHome } from "./components/Home/MainHome";
 
+
 function App() {
   return (
     <div className="App">
       {/* <ResponsiveAppBar /> */}
+  
       <Routes>
         <Route path="/" element={<MainHome />} />
         <Route path="*" element={<NotFound />} />
