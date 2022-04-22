@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import './club.css';
+import { useNavigate } from 'react-router';
+
 
 
 export const Club = () => {
   const [title, changeTitle] = useState("");
   const [desc, changDesc] = useState('');
   const [cat, changeCat] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     console.log(title, desc, cat);
+    navigate('/');
 
   }
+
   const options = [
     {
       value: 'teacher',
@@ -49,24 +54,27 @@ export const Club = () => {
   return (
     <>
       <div id='contain'>
-        <label htmlFor="">Title</label><br />
-        <input type="text" placeholder='Enter the title....' value={title}
-          onChange={(e) => changeTitle(e.target.value)} /> <br /> <br />
-        <label htmlFor="">Category</label> <br />
-        <select name="" id="" value="Bhava" onChange={(e) => changeCat(e.target.value)}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+        <form action="">
 
-          ))}
-        </select>
-        <br /> <br />
-        <label htmlFor="">Description</label><br />
-        <textarea name="" id="" cols="42" rows="10"
-          onChange={(e) => changDesc(e.target.value)} placeholder='Enter the description...'>
 
-        </textarea><br />
+          <label htmlFor="">Title</label><br />
+          <input type="text" placeholder='Enter the title....' value={title}
+            onChange={(e) => changeTitle(e.target.value)} /> <br /> <br />
+          <label htmlFor="">Category</label> <br />
+          <select name="" id="" value="Bhava" onChange={(e) => changeCat(e.target.value)}>
+            {options.map((option) => (
+              <option key={option.id} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          <br /> <br />
+          <label htmlFor="">Description</label><br />
+          <textarea name="" id="" cols="42" rows="10"
+            onChange={(e) => changDesc(e.target.value)} placeholder='Enter the description...'>
 
-        <button onClick={handleChange}>Create Club</button>
+          </textarea><br />
+
+          <button onClick={handleChange} >Create Club</button>
+        </form>
 
       </div>
 
