@@ -7,7 +7,7 @@ import ResponsiveAppBar from "./components/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      <ResponsiveAppBar />
+      {/* <ResponsiveAppBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignupSignin />} />
