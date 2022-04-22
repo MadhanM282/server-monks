@@ -4,11 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { setEvents } from "../../Redux/actions";
 import { EventCard } from "../Card/Card";
 import ResponsiveAppBar from "../Navbar/Navbar";
+
+
 export const Home = () => {
+
+
   const dispatch = useDispatch();
+
+
   useEffect(() => {
     fetchData();
   }, []);
+
+
 
   const fetchData = () => {
     axios
@@ -37,7 +45,7 @@ export const Home = () => {
             gap: "20px",
           }}
         >
-          {data.map((event) => {
+          {data && data.map((event) => {
             return <EventCard key={event._id} event={event} />;
           })}
         </div>
