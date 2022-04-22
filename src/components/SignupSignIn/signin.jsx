@@ -1,17 +1,14 @@
-import { TextField, Typography } from "@mui/material"
 import "./style.css"
 export const SignupSignin = () => {
     return (
         <>
-            
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1>Create Account</h1>
-                        <br/>
-                        <TextField variant="outlined" type="text" placeholder="Name" />
-                        <TextField variant="outlined" type="email" placeholder="Email" />
-                        <TextField variant="outlined" type="password" placeholder="Password" />
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
                         <button onClick={() => {
                             container.classList.add("right-panel-active")
                         }} > Sign Up</button>
@@ -20,9 +17,9 @@ export const SignupSignin = () => {
                 <div className="form-container sign-in-container">
                     <form action="#">
                         <h1>Sign in</h1>
-                        <br/>
-                        <TextField variant="outlined" type="email" placeholder="Email" />
-                        <TextField variant="outlined" type="password" placeholder="Password" />
+                        
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
                         <a href="#">Forgot your password?</a>
                         <button onClick={() => {
 

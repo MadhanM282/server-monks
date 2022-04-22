@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Discover", "My Clubs", "Create Clubs"];
+const pages = ["My Clubs", "Create Club"];
 const settings = ["Profile", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -33,9 +33,9 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  // sx={{ border: 1, width: "100%" }}
   return (
-    <AppBar position="static" sx={{ border: 1, width: "100%" }}>
+    <AppBar>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
