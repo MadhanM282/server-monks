@@ -4,7 +4,7 @@ export const EventCard = ({ event }) => {
   const { club_title, description, type, image, subcription_user_id } = event;
   return (
     <ChakraProvider>
-      <div style={{ backgroundColor: "#FF6FB5", borderRadius: "7px" }}>
+      <div style={{ backgroundColor: "#ffffff",width:"20%", borderRadius: "7px", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
         <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
           <Image src={image} alt={club_title} />
 

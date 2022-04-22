@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubData } from "../../Redux/Home/clubHomeAction";
 import { EventCard } from "../Card/Card";
-import ResponsiveAppBar from "../Navbar/Navbar";
+import * as React from 'react';
+import Box from '@mui/material/Box';
 
 
 export const Home = () => {
@@ -53,29 +54,24 @@ export const Home = () => {
     }
   }
 
+  // return loding ? <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" /> : error ? <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" alt="Oops something went wrong" /> : (
+
   return (
-    <div style={{ }}>
-      <ResponsiveAppBar />
-      <br />
-      <br />
-      <br />
-      <br />
-      {!clubList.clubs ? (
-        <div>...Loading</div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "20px",
-          }}
-        >
-          {clubList.clubs && clubList.clubs.map((event) => {
-            return <EventCard key={event._id} event={event} />;
-          })}
-        </div>
-      )}
-    </div>
-  );
+
+    <Box sx={{mt:20}}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+          border: "1px solid"
+        }}
+      >
+        {clubList.clubs && clubList.clubs.map((event) => {
+          return <EventCard key={event._id} event={event} />;
+        })}
+      </div>
+    </Box>
+  )
 };
