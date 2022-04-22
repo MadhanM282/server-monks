@@ -1,47 +1,77 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setEvents } from "../../Redux/actions";
+import { getClubData } from "../../Redux/Home/clubHomeAction";
 import { EventCard } from "../Card/Card";
-import ResponsiveAppBar from "../Navbar/Navbar";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+
+
 export const Home = () => {
+
+
   const dispatch = useDispatch();
+
+
+  const { clubList, loding, error } = useSelector((store) => store.club);
+  console.log('clubList', clubList);
+
+
+  const [page, setPage] = useState(1);
+
+
+  const [sort, setSort] = useState("asc");
+
+
+  const [filter, setFilter] = useState("");
+
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page, sort, filter]);
+
+
 
   const fetchData = () => {
-    axios
-      .get("https://server-monks-backend.herokuapp.com/clubs")
-      .then((res) => {
-        dispatch(setEvents(res.data));
-      });
+    dispatch(getClubData(page, sort, filter));
   };
-  const data = useSelector((store) => store.setAllEvents.allEvents);
+
+  const handleChangePage = (event, value) => {
+    setPage(value);
+  };
+
+
+  const handleChangeType = (e, value) => {
+    setFilter(value);
+  }
+
+  const handleChangeSort = (e) => {
+    if (e.target.value === "asc") {
+      setSort("asc")
+    }
+    if (e.target.value === "desc") {
+      setSort("desc")
+    }
+  }
+
+  // return loding ? <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" /> : error ? <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" alt="Oops something went wrong" /> : (
 
   return (
-    <div style={{ backgroundColor: "#AB46D2" }}>
-      <ResponsiveAppBar />
-      <br />
-      <br />
-      <br />
-      <br />
-      {!data ? (
-        <div>...Loading</div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "20px",
-          }}
-        >
-          {data.map((event) => {
-            return <EventCard key={event._id} event={event} />;
-          })}
-        </div>
-      )}
-    </div>
-  );
+
+    <Box sx={{mt:20}}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+          border: "1px solid"
+        }}
+      >
+        {clubList.clubs && clubList.clubs.map((event) => {
+          return <EventCard key={event._id} event={event} />;
+        })}
+      </div>
+    </Box>
+  )
 };

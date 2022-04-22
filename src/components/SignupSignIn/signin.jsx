@@ -42,6 +42,7 @@ export const SignupSignin = () => {
         console.log('Signin', Signin);
         axios.post(`https://server-monks-backend.herokuapp.com/login`,Signin).then(({data})=>{
             console.log('Login data', data);
+            navigate("/")
         })
     }
 
