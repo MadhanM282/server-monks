@@ -8,12 +8,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.2",
+=======
+    "axios": "^0.26.1",
+>>>>>>> 88de8c94d89931074a48010757d8c1ccc15c72c3
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.0.1",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

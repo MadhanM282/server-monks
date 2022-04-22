@@ -1,13 +1,17 @@
-import { useState } from "react";
-import "./App.css";
-import { AllRoutes } from "./components/AllRoutes/AllRoutes";
+
+import './App.css'
+import { SignupSignin } from './components/SignupSignIn/signin'
+import { Route, Routes } from 'react-router'
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <div className="App">
-      <AllRoutes />
+
+      <Routes>
+        <Route path="/signin" element={<SignupSignin />} />
+      </Routes>
     </div>
   );
 }
