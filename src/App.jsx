@@ -6,6 +6,7 @@ import { Club } from "./components/CreateClub/club";
 
 import ResponsiveAppBar from "./components/Navbar/Navbar";
 import { Profile } from "./components/Profile/Profile";
+import { NotFound } from "./components/NotFound";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {/* <ResponsiveAppBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/signin" element={<SignupSignin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/club" element={<Club />} />
