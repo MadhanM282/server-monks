@@ -6,26 +6,19 @@ import thunk from "redux-thunk";
 import { clubHomeReducer } from "./Home/clubHomeReducer";
 import { registerReducer } from "./register/registerReducer";
 
-
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__({
-  
-  }) : compose;
+    ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__({})
+    : compose;
 
 const middleware = [thunk];
 
-const enhancer = composeEnhancers(
-  applyMiddleware(...middleware)
-);
-
+const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
 const rootReducer = combineReducers({
   auth: AuthReducer,
   register: registerReducer,
-  club: clubHomeReducer
+  club: clubHomeReducer,
 });
 
 export const store = createStore(rootReducer, enhancer);
-
-
