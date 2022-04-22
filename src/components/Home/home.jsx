@@ -54,7 +54,7 @@ export const Home = () => {
   }
 
   return (
-    <div style={{ backgroundColor: "#AB46D2" }}>
+    <div style={{ }}>
       <ResponsiveAppBar />
       <br />
       <br />
