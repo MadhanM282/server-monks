@@ -6,6 +6,7 @@ import ResponsiveAppBar from "./components/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
+   
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
