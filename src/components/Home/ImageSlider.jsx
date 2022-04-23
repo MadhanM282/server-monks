@@ -9,13 +9,13 @@ import axios from "axios";
 const Img = styled.img`
   cursor: pointer;
   display: block;
-  width: 85%;
+  width: 95%;
   margin: auto;
 
 padding:30px;
-height:400px;
+height:550px;
   border-radius:20px;
-  border: 1px solid;
+  /* border: 1px solid; */
 
   &:hover {
     transform: scale(1.05);
@@ -55,7 +55,7 @@ export const ImageSlider = () => {
 
     return (
 
-        <div style={{ width: "97%", margin: "auto", borderRadius: 5, marginTop: "90px", background: "#000000" }}>
+        <div style={{ width: "97%", margin: "auto", borderRadius: 5, marginTop: "90px", background: "#ffffff" }}>
             <div >
                 <Slider {...settings}>
                     {image.map((el) => {

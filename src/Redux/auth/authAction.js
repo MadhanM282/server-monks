@@ -27,7 +27,7 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
     .post("https://server-monks-backend.herokuapp.com/login", data)
     .then(({ data }) => {
       localStorage.setItem("user", data.user.firstName);
-      let DATA = data
+      let DATA = data.user
       dispatch(loginSuccess(data));
       console.log("logindata", data);
 

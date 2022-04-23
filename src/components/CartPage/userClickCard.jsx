@@ -29,6 +29,9 @@ import { updateClubListDataa, updateUserInfoData } from "../../Redux/suscribe/su
 export const CardDetails = () => {
   const navigate = useNavigate();
 
+  const [UserData,SetUserData] = useState({});
+  console.log('UserData', UserData);
+
   const {id} = useParams()
 
   const { Club } = useSelector((store) => store.Rtc);
@@ -50,17 +53,18 @@ export const CardDetails = () => {
   console.log('clubD', clubD);
 
   useEffect(() => {
-
+    SetUserData(JSON.parse(localStorage.getItem('UserData')))
     setClubD(Club);
   }, []);
 
   const handeSub = ()=>{
     setClubD({...clubD,subcription_user_id:[...clubD.subcription_user_id,userId]})
+    UserData.suscribed_ids.push(Club._id)
     handleChange()
   }
 
   const handleChange = () => {
-    dispatch(updateClubListDataa(clubD,clubId, toast,navigate));
+    dispatch(updateClubListDataa(clubD,clubId, toast));
     dispatch(updateUserInfoData());
   }
 
