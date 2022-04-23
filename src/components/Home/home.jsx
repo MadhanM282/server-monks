@@ -132,7 +132,7 @@ export const Home = () => {
             onClick={handleChangeSort}
             variant="text"
           >
-            Sort ASC
+            Latest
           </Button>
           <Button
             sx={[
@@ -148,7 +148,7 @@ export const Home = () => {
             onClick={handleChangeSort}
             variant="text"
           >
-            Sort DESC
+            Old
           </Button>
           <Button
             sx={[
