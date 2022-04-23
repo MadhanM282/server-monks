@@ -38,9 +38,10 @@ export const Home = () => {
     return <Navigate to="/signin" />
   }
 
-  console.log('clubListxdcfvghbjn', clubList.clubs.length);
+  // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
+  console.log('size', size);
 
   // const types = clubList.clubs;
 
@@ -97,7 +98,8 @@ export const Home = () => {
             component="div"
             sx={{ mr: 2, color: "white", display: { xs: "none", md: "flex" } }}
           >
-            CLUBS :- {clubList.clubs.length}
+            CLUBS :-
+            {/* {clubList.clubs.length} */}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-around", width: "40%", alignItems: "center" }}>

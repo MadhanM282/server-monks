@@ -30,16 +30,14 @@ export const CardDetails = () => {
     const navigate = useNavigate()
 
     const { Club, user } = useSelector((store) => store.Rtc);
+    console.log('Club', Club);
 
-    console.log('Club', Club._id);
+//    const {id} = Club._id;
     const { firstName } = useSelector((store) => store.auth.user.user);
 
     const dispatch = useDispatch();
 
-    const handleChangeUpdate = () => {
-        dispatch(updateClubListData(Club, Club._id, toast, navigate))
-    }
-
+  
     return (
         <>
             <ResponsiveAppBar />
@@ -58,7 +56,7 @@ export const CardDetails = () => {
                     </Typography>
                     <Box sx={{ mt: 3}}>
 
-                    <Button onClick={handleChangeUpdate} sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" }, () => ({ '&:hover': { color: 'black' } })]}>Subscribe</Button>      
+                    <Button  sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" }, () => ({ '&:hover': { color: 'black' } })]}>Subscribe</Button>      
                     </Box>
  
                     <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
