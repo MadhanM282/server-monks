@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProfileCard.css";
+import { useSelector } from "react-redux";
 import ResponsiveAppBar from "../Navbar/Navbar";
 function Profile(props) {
   const uploadedImage = React.useRef(null);
@@ -18,7 +19,7 @@ function Profile(props) {
   };
 
   const { user } = useSelector((store) => store.auth);
-  console.log('usersdfgfhj', user.user_img);
+  console.log("usersdfgfhj", user.user_img);
   return (
     <div>
       <ResponsiveAppBar />
@@ -29,16 +30,18 @@ function Profile(props) {
       <div className="main-card">
         <div className="card-container">
           <header>
-            <img style={{
-              margin: "auto",
-              width: "100px",
-              border: "solid white 4px",
-              borderRadius: "50%",
-              marginTop: "75px",
-            }}
+            <img
+              style={{
+                margin: "auto",
+                width: "100px",
+                border: "solid white 4px",
+                borderRadius: "50%",
+                marginTop: "75px",
+              }}
               // src={user.user_img}
               ref={uploadedImage}
-              alt="" />
+              alt=""
+            />
           </header>
           <div
             style={{
@@ -90,7 +93,7 @@ function Profile(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export { Profile };
