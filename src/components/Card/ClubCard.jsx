@@ -39,11 +39,6 @@ export const ClubCard =({event}) => {
 
     const dispatch = useDispatch()
 
-
-
-
-    
-
     let date = event.createdAt.split("T")
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -63,6 +58,8 @@ export const ClubCard =({event}) => {
                 component="img"
                 height="194"
                 image={event.image}
+                //  "https://thumbs.dreamstime.com/b/kids-play-football…king-ball-running-child-team-jersey-120383202.jpg"
+                // {event.image}
                 alt={event.club_title}
             />
             

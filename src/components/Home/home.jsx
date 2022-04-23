@@ -122,20 +122,21 @@ export const Home = () => {
           </FormControl>
         </Box>
       </Box>
-      <div
-        style={{
+      <Box
+        sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "20px",
-          border: "1px solid",
+          justifyContent: "space-around",
+          gap: 7,
+          width:"95%",
+          m:3,
           marginTop: "20px"
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {
           return <ClubCard key={event._id} event={event} />;
         })}
-      </div>
+      </Box>
       <br />
       <br />
       <Box sx={{ width: "fit-content", margin: "auto" }}>
