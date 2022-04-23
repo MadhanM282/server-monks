@@ -26,10 +26,6 @@ export const Home = () => {
 
   const { clubList, loding, error } = useSelector((store) => store.club);
 
-
-  const checking = useSelector((store) => store.club);
-  console.log('checking', checking);
-
   const { isAuthenticated } = useSelector((store) => store.auth);
 
   const types = ["Education","Gaming","Exploration","Adventure","Coding","Music","Video","Photography"]
@@ -38,7 +34,7 @@ export const Home = () => {
     return <Navigate to="/signin" />
   }
 
-  console.log('clubListxdcfvghbjn', clubList.clubs.length);
+  // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
 
@@ -97,7 +93,8 @@ export const Home = () => {
             component="div"
             sx={{ mr: 2, color: "white", display: { xs: "none", md: "flex" } }}
           >
-            CLUBS :- {clubList.clubs.length}
+            CLUBS :- 
+            {/* {clubList.clubs.length?clubList.clubs.length:0} */}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-around", width: "40%", alignItems: "center" }}>

@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const CLUB_LIST = "CLUB_LIST";
 
-
 export const GET_CLUB = "GET_CLUB";
 
 export const UPDATE_CLUB = "UPDATE_CLUB";
@@ -51,7 +50,6 @@ export const getClubData = (page,sort,filter) => (dispatch) => {
         console.log('data', data);
     })
     .catch((err) => dispatch(clubError()));
-    
 }
 
 

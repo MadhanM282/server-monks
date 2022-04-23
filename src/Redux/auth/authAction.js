@@ -23,9 +23,13 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
   axios
     .post("https://server-monks-backend.herokuapp.com/login", data)
     .then(({ data }) => {
+      localStorage.setItem("user",(data.user.firstName))
       dispatch(loginSuccess(data));
       console.log('logindata', data);
 
+      localStorage.setItem("auth",true)
+      localStorage.setItem("id",data.user._id)
+      
       toast.success("Logged in Successfully", {
         position: "top-center",
       });
