@@ -5,75 +5,66 @@ import { useNavigate } from 'react-router';
 
 
 export const Club = () => {
-  const [title, changeTitle] = useState("");
-  const [desc, changDesc] = useState('');
-  const [cat, changeCat] = useState('');
-  const navigate = useNavigate();
+  const [clubData,changeData]=useState({
+    club_title:"",
+    image:"",
+    type:"",
+    description:"",
+    creator_id:""
+
+  })
+ 
 
   const handleChange = (e) => {
-    console.log(title, desc, cat);
-    navigate('/');
+    // console.log(title, desc, cat);
+    // alert("Data added succesfully");
+    // navigate('/');
+
+  }
+  const submitData=(e)=>{
+    e.preventDefault();
 
   }
 
   const options = [
     {
-      value: 'teacher',
-      label: "Teacher"
+      value: "grouping",
+      label: "Grouping"
     },
     {
-      value: 'managment',
-      label: "Managment"
+      value: "dressing",
+      label: "Dressing"
     },
     {
-      value: 'fess',
-      label: 'Fees'
+      value: "inspiration",
+      label: "Inspiration"
     },
     {
-      value: 'holiday',
-      label: 'Holiday'
+      value: "games",
+      label: "Games"
     },
     {
       value: 'exam',
       label: 'Exam'
     },
     {
-      value: 'hostel',
-      label: 'Hostel'
+      value: "study_rooms",
+      label: "Study_rooms"
     },
     {
-      value: 'sports',
-      label: 'Sports'
-    },
-    {
-      value: 'mess',
-      label: 'Mess'
-    },
+      value: "coding",
+      label: "Coding"
+    }
   ]
 
   return (
     <>
       <div id='contain'>
-        <form action="">
+        <form action="" onSubmit={submitData}>
+          <input type="text" placeholder='Enter the title...' id='club_title' 
+          onChange={handleChange}/>
 
-
-          <label htmlFor="">Title</label><br />
-          <input type="text" placeholder='Enter the title....' value={title}
-            onChange={(e) => changeTitle(e.target.value)} /> <br /> <br />
-          <label htmlFor="">Category</label> <br />
-          <select name="" id="" value="Bhava" onChange={(e) => changeCat(e.target.value)}>
-            {options.map((option) => (
-              <option key={option.id} value={option.value}>{option.label}</option>
-            ))}
-          </select>
-          <br /> <br />
-          <label htmlFor="">Description</label><br />
-          <textarea name="" id="" cols="42" rows="10"
-            onChange={(e) => changDesc(e.target.value)} placeholder='Enter the description...'>
-
-          </textarea><br />
-
-          <button onClick={handleChange} >Create Club</button>
+         
         </form>
 
       </div>
