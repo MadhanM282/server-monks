@@ -9,6 +9,7 @@ import { MainHome } from "./components/Home/MainHome";
 import WebRTC from "./components/WEBRTC/Main";
 import { CardDetails } from './components/CartPage/Card';
 import {MYCLUBS} from './components/My Clubs/myclub'
+import { GeneralChat } from './components/WEBRTC/GeneralChat';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
         <Route path="/club" element={<Club />} />
         <Route path="/RTC" element={<WebRTC />} />
         <Route path="/clubDetails" element={<CardDetails/>} />
-        <Route path="/myclubs" element={<MYCLUBS/>}/>
+        <Route path="/myclubs" element={<MYCLUBS />} />
+        <Route path="/general" element={<GeneralChat />}/>
       </Routes>
     </div>
   );

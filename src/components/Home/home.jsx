@@ -14,26 +14,30 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { ClubCard } from "../Card/ClubCard";
-import { Navigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 export const Home = () => {
 
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
 
   const { clubList, loding, error } = useSelector((store) => store.club);
 
-  const { isAuthenticated} = useSelector((store) => store.auth);
+  const { isAuthenticated } = useSelector((store) => store.auth);
 
 
-  if(!isAuthenticated){
-    return <Navigate to="/signin"/>
+  if (!isAuthenticated) {
+    return <Navigate to="/signin" />
   }
 
-  console.log('clubList', clubList.totalPages);
+  console.log('clubListxdcfvghbjn', clubList.clubs);
 
   const size = clubList.totalPages;
+
+  const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
 
@@ -61,6 +65,10 @@ export const Home = () => {
 
   const handleChangeType = (e, value) => {
     setFilter(value);
+    // if (e.target.id === "type") {
+    //   setFilter(`type=${e.target.value}`)
+
+    // }
   }
 
   const handleChangeSort = (e) => {
@@ -77,8 +85,8 @@ export const Home = () => {
   return (
 
     <Box sx={{ mt: 15 }}>
-      <Box sx={{display:"flex",gap:"10px",justifyContent:"space-between" ,mb:2, boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px - 2px, rgba(0, 0, 0, 0.3) 0px 3px 7px - 3px'}}>
-        <Box sx={{width:"20%",ml:5}}>
+      <Box sx={{ display: "flex", gap: "10px", justifyContent: "space-between", mb: 2, boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px - 2px, rgba(0, 0, 0, 0.3) 0px 3px 7px - 3px' }}>
+        <Box sx={{ width: "20%", ml: 5 }}>
           {/* <h1 >
              Clubs
           </h1> */}
@@ -86,17 +94,17 @@ export const Home = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2,color:"white", display: { xs: "none", md: "flex" } }}
+            sx={{ mr: 2, color: "white", display: { xs: "none", md: "flex" } }}
           >
-            CLUBS
+            CLUBS :- {types.length}
           </Typography>
         </Box>
-        <Box sx={{  display:"flex",justifyContent:"space-around",width:"40%",alignItems:"center"}}>
-          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} value="asc" onClick={handleChangeSort}variant="text">Sort ASC</Button>
-          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#242424" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} value="desc" onClick={handleChangeSort}variant="text">Sort DESC</Button>
-          <Button sx={[{border: "1px solid #FF4B2B",bgcolor: "#fb568a", boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#686b78" }, () => ({ '&:hover': { color: 'black' } })]} onClick={handleChangeType}variant="text">Filter by Type</Button>
+        <Box sx={{ display: "flex", justifyContent: "space-around", width: "40%", alignItems: "center" }}>
+          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff", bgcolor: "#222222" }, () => ({ '&:hover': { color: '#fafafa', bgcolor: "#474747" } })]} value="asc" onClick={handleChangeSort} variant="text">Sort ASC</Button>
+          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff", bgcolor: "#242424" }, () => ({ '&:hover': { color: '#fafafa', bgcolor: "#474747" } })]} value="desc" onClick={handleChangeSort} variant="text">Sort DESC</Button>
+          <Button sx={[{ border: "1px solid #FF4B2B", bgcolor: "#fb568a", boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#686b78" }, () => ({ '&:hover': { color: 'black' } })]} onClick={() => navigate("/general")} variant="text">Filter by Type</Button>
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} id="demo-simple-select-standard-label">Filter by Type</InputLabel>
+            <InputLabel sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff", bgcolor: "#222222" }, () => ({ '&:hover': { color: '#fafafa', bgcolor: "#474747" } })]} id="demo-simple-select-standard-label">Filter by Type</InputLabel>
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
@@ -104,12 +112,12 @@ export const Home = () => {
               onChange={handleChangeType}
               label="Type"
             >
-              {/* <MenuItem value="">
+              <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem> */}
+              {types && types.map((e) => {
+                return <MenuItem key={e.id} id="type" value={e.type}>{e.type}</MenuItem>
+              })}
             </Select>
           </FormControl>
         </Box>
@@ -121,7 +129,7 @@ export const Home = () => {
           justifyContent: "center",
           gap: "20px",
           border: "1px solid",
-          marginTop:"20px"
+          marginTop: "20px"
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {
@@ -129,7 +137,7 @@ export const Home = () => {
         })}
       </div>
       <br />
-      <br/>
+      <br />
       <Box sx={{ width: "fit-content", margin: "auto" }}>
         <Stack spacing={4}>
 
