@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UserData } from "../Rtc/actions";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
@@ -18,6 +19,7 @@ export const logoutUser = () => ({ type: LOGOUT });
 
 export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
   dispatch(loginLoding());
+  dispatch(UserData(data))
   axios
     .post("https://server-monks-backend.herokuapp.com/login", data)
     .then(({ data }) => {

@@ -86,23 +86,23 @@ export const Club = () => {
 
   return (
     <>
-      <Box sx={{ border: '1px solid white', width: 1000, height: 400, m:"auto" }} Align="Center">
-        
-        <TextField
-        Align='center'
-         sx={{ border: '1px solid white', width: "60%", m: "auto", bgcolor: 'white' }}
-          id="club_title" label="Enter the title..." variant="filled" onChange={handleChange} />
-        <InputLabel sx={{ border: '1px solid white', color: "white", width: 100 }} id='type'>Type</InputLabel>
-        <Select id='type' value={"type"} label={"type"}
-          onChange={handleChange} sx={{ border: '1px solid white' }}>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
+      <Box sx={{ border: '1px solid white', m: "auto",display:"flex",justifyContent: 'center'}} >
+
+        <Box>
+          <TextField
+            variant="outlined" sx={{bgcolor: '#FFFFFF',borderRadius:"10px"}}  id="club_title" label="Enter the title..." onChange={handleChange} />
+          <InputLabel sx={{ border: '1px solid white', color: "white", width: 100 }} id='type'>Type</InputLabel>
+          <Select id='type' value={"type"} label={"type"}
+            onChange={handleChange} sx={{ border: '1px solid white' }}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
         </Box>
+      </Box>
 
 
-        
+
 
     </>
 
