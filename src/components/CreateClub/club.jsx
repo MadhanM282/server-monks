@@ -4,12 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from 'nanoid';
 import { clubListData } from '../../Redux/Home/clubHomeAction';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 export const Club = () => {
-  const { user } = useSelector((store) => store.auth),dispatch=useDispatch();
-  const navigate=useNavigate();
+  const { user } = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // console.log(user);
   const [clubData, changeData] = useState({
     club_title: "",
@@ -21,22 +24,19 @@ export const Club = () => {
   })
   console.log(clubData);
 
-
-
   const handleChange = (e) => {
     // console.log(title, desc, cat);
     // alert("Data added succesfully");
     // navigate('/');
     // console.log(e, e.target.value);
     const { id, value } = e.target;
-    changeData({...clubData,[id]: value });
-  
+    changeData({ ...clubData, [id]: value });
 
   }
   const submitData = (e) => {
     e.preventDefault();
-    // dispatch(clubListData(clubData,navigate))
-    console.log("The data is",clubData);
+    dispatch(clubListData(clubData, toast, navigate))
+    console.log("The data is", clubData);
 
   }
 
@@ -45,14 +45,11 @@ export const Club = () => {
       value: "grouping",
       label: "Grouping",
       id: nanoid()
-
-
     },
     {
       value: "dressing",
       label: "Dressing",
       id: nanoid()
-
     },
     {
       value: "inspiration",
