@@ -6,6 +6,9 @@ import { nanoid } from 'nanoid';
 import { clubListData } from '../../Redux/Home/clubHomeAction';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { TextField, Box, InputLabel, Select, MenuItem } from '@mui/material';
+import { width } from '@mui/system';
+
 
 
 
@@ -28,7 +31,7 @@ export const Club = () => {
     // console.log(title, desc, cat);
     // alert("Data added succesfully");
     // navigate('/');
-    // console.log(e, e.target.value);
+    console.log(e, e.target.value);
     const { id, value } = e.target;
     changeData({ ...clubData, [id]: value });
 
@@ -83,31 +86,11 @@ export const Club = () => {
 
   return (
     <>
-      <div id='contain'>
-        <form action="" onSubmit={submitData}>
-          
-          <label htmlFor="">Title</label> <br />
-          <input type="text" placeholder='Enter the title...' id='club_title' required
-            onChange={handleChange} /> <br />
-          <label htmlFor="">Select image</label>
-          <input type="file" placeholder='choose image....' id='image' required
-            accept='image/*' onChange={handleChange} /> <br />
-          <label htmlFor="">Type</label>
-          <select name="" id="type" onChange={handleChange}>
-            {options.map((e) => (
-              <option value={e.value} key={e.id} id='type'>{e.label}</option>
-            ))}
-          </select> <br />
-          <label htmlFor="">Description</label>
-          <textarea name="" id="description" cols="30" rows="10"
-            placeholder='Enter the description...'
-            onChange={handleChange}
-          ></textarea> <br />
-          <button>Create Club</button>
-        </form>
 
-      </div>
 
+
+
+      
     </>
 
   )
