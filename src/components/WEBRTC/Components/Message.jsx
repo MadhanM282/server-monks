@@ -8,21 +8,25 @@ const Message = ({
     photoURL = "",
 
 }) => {
-    return (<div>
+    return (
+ <div >
+ <div style={{color: 'white' ,display: 'flex',alignItems: 'center',gap: "20px"}}>
 
-        {photoURL ? (
+{photoURL ? (
 
-            <img src={photoURL} alt="Avatar" />
-        ) : null}
-        {displayName ? <p>{displayName}</p> : null}
-        {createdAt?.seconds ? (
-            <span>
-                {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
-            </span>
-        ) : null}
-        <p>{text}</p>
-    </div>
+    <img src={photoURL} style={{ height:"30px",borderRadius:"50%"}} alt="Avatar" />
+) : null}
+{displayName ? <p style={{fontSize:"17px"}} >{displayName}</p> : null}
+{createdAt?.seconds ? (
+    <p style={{fontSize:"17px"}}>
+        {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
+    </p>
+) : null}<br />
 
+</div>
+<p style={{color: 'white',fontSize:"17px",marginLeft:"50px",marginTop:"-10px"}}>{text}</p>
+<hr />
+ </div>
 
     )
 }
