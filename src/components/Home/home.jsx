@@ -115,7 +115,9 @@ export const Home = () => {
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {
-          return <EventCard key={event._id} event={event} />;
+          return <Box>
+            <img src={event.image} alt="" />
+          </Box>
         })}
       </div>
       <br />
