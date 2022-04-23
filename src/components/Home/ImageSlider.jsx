@@ -24,17 +24,6 @@ height:400px;
   }
 `;
 
-const Wrapper = styled.header`
-  max-width: 100%;
-  min-width: 100%;
-//   position: relative;
-  margin: auto;
- margin-top: 70px;
-//  padding: 20px 0;
-
-  color:grey;
-  border: 1px solid red;
-`;
 
 const settings = {
     dots: true,
@@ -65,7 +54,7 @@ export const ImageSlider = () => {
 
 
     return (
-        // <Wrapper>className="container my-3"
+
         <div style={{ width: "97%", margin: "auto", borderRadius: 5, marginTop: "90px", background: "#000000" }}>
             <div >
                 <Slider {...settings}>
@@ -80,7 +69,7 @@ export const ImageSlider = () => {
                 </Slider>
             </div>
         </div>
-        //  </Wrapper>
+
     );
 }
 
