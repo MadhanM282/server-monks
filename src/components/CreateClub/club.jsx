@@ -85,6 +85,7 @@ export const Club = () => {
     <>
       <div id='contain'>
         <form action="" onSubmit={submitData}>
+          
           <label htmlFor="">Title</label> <br />
           <input type="text" placeholder='Enter the title...' id='club_title' required
             onChange={handleChange} /> <br />
