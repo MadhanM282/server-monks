@@ -15,7 +15,7 @@ export const registerSuccess = (payload) => ({
   payload,
 });
 
-export const registerSuccessData = (data, toast, navigate) => (dispatch) => {
+export const registerSuccessData = (data, toast) => (dispatch) => {
   dispatch(registerLoding());
   axios
     .post("https://server-monks-backend.herokuapp.com/register", data)
@@ -25,7 +25,7 @@ export const registerSuccessData = (data, toast, navigate) => (dispatch) => {
         position: "top-center",
       });
       setTimeout(() => {
-        navigate("/SignIn");
+        // navigate("/SignIn");
       }, 3000);
     })
     .catch((err) => {
