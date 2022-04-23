@@ -34,6 +34,7 @@ export const ClubCard =({event}) => {
         setExpanded(!expanded);
     };
 
+    let date = event.createdAt.split("T")
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -48,7 +49,7 @@ export const ClubCard =({event}) => {
                     </IconButton>
                 }
                 title={event.club_title}
-                subheader="September 14, 2016"
+                subheader={date[0]}
             />
             <CardMedia
                 component="img"
@@ -56,16 +57,10 @@ export const ClubCard =({event}) => {
                 image={event.image}
                 alt={event.club_title}
             />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
-                </Typography>
-            </CardContent>
+            
             <CardActions disableSpacing>
                 <Button onClick={()=>{
-                    
+
                 }} >View More</Button>
                 {/* <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
