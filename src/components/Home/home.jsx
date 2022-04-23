@@ -229,7 +229,7 @@ export const Home = () => {
       <br />
       <Box sx={{ width: "fit-content", margin: "auto" }}>
         <Stack spacing={4}>
-          <Pagination count={size-1} page={page} onChange={handleChangePage} />
+          <Pagination count={size} page={page} onChange={handleChangePage} />
         </Stack>
       </Box>
       <br />
