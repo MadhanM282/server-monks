@@ -19,7 +19,7 @@ export const Club = () => {
     image: "",
     type: "",
     description: "",
-    creator_id: user
+    creator_id: user._id
 
   })
   console.log(clubData);

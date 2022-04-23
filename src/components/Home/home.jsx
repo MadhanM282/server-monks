@@ -77,17 +77,17 @@ export const Home = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            sx={{ mr: 2,color:"white", display: { xs: "none", md: "flex" } }}
           >
             CLUBS
           </Typography>
         </Box>
-        <Box sx={{  display:"flex",justifyContent:"space-around",width:"40%"}}>
-          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#686b78" }, () => ({ '&:hover': { color: 'black' } })]} value="asc" onClick={handleChangeSort}variant="text">Sort ASC</Button>
-          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#686b78" }, () => ({ '&:hover': { color: 'black' } })]} value="desc" onClick={handleChangeSort}variant="text">Sort DESC</Button>
+        <Box sx={{  display:"flex",justifyContent:"space-around",width:"40%",alignItems:"center"}}>
+          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} value="asc" onClick={handleChangeSort}variant="text">Sort ASC</Button>
+          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#242424" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} value="desc" onClick={handleChangeSort}variant="text">Sort DESC</Button>
           {/* <Button sx={[{border: "1px solid #FF4B2B",bgcolor: "#fb568a", boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#686b78" }, () => ({ '&:hover': { color: 'black' } })]} onClick={handleChangeType}variant="text">Filter by Type</Button> */}
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label">Filter by Type</InputLabel>
+            <InputLabel sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} id="demo-simple-select-standard-label">Filter by Type</InputLabel>
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"

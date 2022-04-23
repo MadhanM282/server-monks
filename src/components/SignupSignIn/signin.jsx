@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css"
 import { registerSuccessData } from "../../Redux/register/registerAction"
+import { UserData } from "../../Redux/Rtc/actions"
 
 
 
@@ -54,6 +55,7 @@ const dispatch = useDispatch();
     const Login = ()=>{
         console.log('Signin', Signin);
         dispatch(loginSuccessData(Signin,toast,navigate))
+        dispatch(UserData(Signin))
         // axios.post(`https://server-monks-backend.herokuapp.com/login`,Signin).then(({data})=>{
         //     console.log('Login data', data);
         //     navigate("/")
