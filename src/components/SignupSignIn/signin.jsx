@@ -45,9 +45,6 @@ const dispatch = useDispatch();
     
     const Register = ()=>{
         console.log('Signup', Signup);
-        // axios.post(`https://server-monks-backend.herokuapp.com/register`,Signup).then(({data})=>{
-        //     console.log('Register data', data);
-        // })
         dispatch(registerSuccessData(Signup, toast))
         container.classList.remove("right-panel-active")
     }
@@ -55,13 +52,7 @@ const dispatch = useDispatch();
     const Login = ()=>{
         console.log('Signin', Signin);
         dispatch(loginSuccessData(Signin,toast,navigate))
-        dispatch(UserData(Signin))
-        // axios.post(`https://server-monks-backend.herokuapp.com/login`,Signin).then(({data})=>{
-        //     console.log('Login data', data);
-        //     navigate("/")
-            
-        // })
-       
+        dispatch(UserData(Signin))       
     }
 
     return (

@@ -19,7 +19,7 @@ export const logoutUser = () => ({ type: LOGOUT });
 
 export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
   dispatch(loginLoding());
-  dispatch(UserData(data))
+  // dispatch(UserData(data))
   axios
     .post("https://server-monks-backend.herokuapp.com/login", data)
     .then(({ data }) => {

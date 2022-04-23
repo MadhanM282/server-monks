@@ -6,8 +6,9 @@ import { nanoid } from 'nanoid';
 import { clubListData } from '../../Redux/Home/clubHomeAction';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { TextField, Box, InputLabel, Select, MenuItem } from '@mui/material';
+import { TextField, Box, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import { width } from '@mui/system';
+import ResponsiveAppBar from '../Navbar/Navbar';
 
 
 
@@ -86,19 +87,17 @@ export const Club = () => {
 
   return (
     <>
-      <Box sx={{ border: '1px solid white', m: "auto",display:"flex",justifyContent: 'center'}} >
+    <ResponsiveAppBar/>
+      <Box sx={{ m: "auto",mt:"100px", display: "flex", justifyContent: 'center',width:"60%",p:3 }} >
 
-        <Box>
-          <TextField
-            variant="outlined" sx={{bgcolor: '#FFFFFF',borderRadius:"10px"}}  id="club_title" label="Enter the title..." onChange={handleChange} />
-          <InputLabel sx={{ border: '1px solid white', color: "white", width: 100 }} id='type'>Type</InputLabel>
-          <Select id='type' value={"type"} label={"type"}
-            onChange={handleChange} sx={{ border: '1px solid white' }}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+        <Box sx={{p:2,width:"90%"}}>
+          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="club_title" label="Title" onChange={handleChange} /> <br />
+          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="type" label="Type " onChange={handleChange} /><br />
+          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="description" label="Description" onChange={handleChange} /><br />
+          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="image" label="Image URL" onChange={handleChange} /><br />
+          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222",ml:"40%" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} >Add Club</Button>
         </Box>
+
       </Box>
 
 
