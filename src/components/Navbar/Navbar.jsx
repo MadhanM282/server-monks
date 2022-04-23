@@ -45,7 +45,10 @@ const ResponsiveAppBar = () => {
       },
     },
   });
-
+  function handleStore() {
+    localStorage.clear();
+    navigate("/signin");
+  }
   // sx={{ border: 1, width: "100%" }}
   return (
     <ThemeProvider theme={darkTheme}>
@@ -163,7 +166,7 @@ const ResponsiveAppBar = () => {
                       onClick={() =>
                         setting == "Profile"
                           ? navigate("/profile")
-                          : navigate("/signin")
+                          : handleStore()
                       }
                       textAlign="center"
                     >
