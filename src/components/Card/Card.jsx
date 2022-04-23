@@ -6,8 +6,8 @@ import { Box } from "@mui/material";
 export const EventCard = ({ event }) => {
   const { club_title, description, type, image, subcription_user_id } = event;
   return (
-      <Box>
-        <img src={image} alt="" />
-      </Box>
+    <Box>
+      <img src={image} alt="" />
+    </Box>
   );
 };

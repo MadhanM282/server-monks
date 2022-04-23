@@ -31,7 +31,7 @@ export const CardDetails = () => {
   const { Club, user } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
-  const firstName = Club.creator_id.firstName
+  const firstName = Club.creator_id.firstName;
 
   const dispatch = useDispatch();
 

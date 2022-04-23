@@ -32,7 +32,14 @@ export const MYCLUBS = () => {
   return (
     <Box>
       <ResponsiveAppBar />
-      <Box sx={{ display: "flex",justifyContent: "space-around",gap:"20px",flexWrap: "wrap"}}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          gap: "20px",
+          flexWrap: "wrap",
+        }}
+      >
         {data.map((ele) => {
           return (
             <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px" }}>
