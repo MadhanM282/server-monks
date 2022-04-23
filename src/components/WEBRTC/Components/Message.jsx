@@ -36,6 +36,7 @@ const Message = ({
         style={{
           color: "black",
           fontSize: "17px",
+          fontWeight: "bold",
           marginLeft: "50px",
           marginTop: "-10px",
         }}
