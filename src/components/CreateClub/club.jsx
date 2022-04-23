@@ -115,8 +115,8 @@ export const Club = () => {
             accept='image/*' onChange={handleChange} /> <br />
           <label htmlFor="">Type</label>
           <select name="" id="type" onChange={handleChange}>
-            {options.map((e) => (
-              <option value={e.value} key={e.id} id='type'>{e.label}</option>
+            // {options.map((e) => (
+            //   <option value={e.value} key={e.id} id='type'>{e.label}</option>
             ))}
           </select> <br />
           <label htmlFor="">Description</label>
