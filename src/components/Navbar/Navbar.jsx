@@ -37,7 +37,6 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-
   const darkTheme = createTheme({
     palette: {
       mode: "light",
@@ -50,7 +49,6 @@ const ResponsiveAppBar = () => {
   // sx={{ border: 1, width: "100%" }}
   return (
     <ThemeProvider theme={darkTheme}>
-
       <AppBar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -109,25 +107,29 @@ const ResponsiveAppBar = () => {
               LOGO
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-
               <Button
-                
-                onClick={()=>navigate("/myclubs")}
+                onClick={() => navigate("/myclubs")}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 My Clubs
               </Button>
               <Button
-                
-                onClick={()=>{navigate('/club')}}
+                onClick={() => {
+                  navigate("/club");
+                }}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Create Club
-                
               </Button>
-
+              <Button
+                onClick={() => {
+                  navigate("/RTC");
+                }}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                General Chat
+              </Button>
             </Box>
-
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
