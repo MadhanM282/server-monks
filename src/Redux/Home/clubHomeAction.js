@@ -42,16 +42,18 @@ export const clubListData = (data, toast, navigate) => (dispatch) => {
     });
 };
 
-
-export const getClubData = (page,sort,filter) => (dispatch) => {
-    dispatch(clubLoding());
-    axios.get(`https://server-monks-backend.herokuapp.com/clubs?count=${page}&sortBy=createdAt&OrderBy=${sort}&type=${filter}`).then(({ data }) => {
-        dispatch(getClubList(data))
-        console.log('data', data);
+export const getClubData = (page, sort, filter) => (dispatch) => {
+  dispatch(clubLoding());
+  axios
+    .get(
+      `https://server-monks-backend.herokuapp.com/clubs?count=${page}&sortBy=createdAt&OrderBy=${sort}&type=${filter}`
+    )
+    .then(({ data }) => {
+      dispatch(getClubList(data));
+      console.log("data", data);
     })
     .catch((err) => dispatch(clubError()));
-}
-
+};
 
 export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
   dispatch(clubLoding());
@@ -74,5 +76,3 @@ export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
       });
     });
 };
-
-

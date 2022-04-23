@@ -46,13 +46,13 @@ export const Home = () => {
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = 5;
-    // clubList.totalPages;
-  console.log('size', size);
+  // clubList.totalPages;
+  console.log("size", size);
 
   // const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
-  console.log('page', page);
+  console.log("page", page);
 
   const [sort, setSort] = useState("asc");
 
@@ -227,11 +227,7 @@ export const Home = () => {
       <br />
       <Box sx={{ width: "fit-content", margin: "auto" }}>
         <Stack spacing={4}>
-          <Pagination
-            count={size}
-            page={page}
-            onChange={handleChangePage}
-          />
+          <Pagination count={size} page={page} onChange={handleChangePage} />
         </Stack>
       </Box>
       <br />

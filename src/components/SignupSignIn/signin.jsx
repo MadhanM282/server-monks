@@ -14,7 +14,7 @@ export const SignupSignin = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  
+
   const [Signup, SetSignup] = useState({
     firstName: "",
     lastName: "",
@@ -39,7 +39,7 @@ export const SignupSignin = () => {
 
   const Register = () => {
     console.log("Signup", Signup);
-   
+
     dispatch(registerSuccessData(Signup, toast));
     container.classList.remove("right-panel-active");
   };
@@ -48,7 +48,6 @@ export const SignupSignin = () => {
     console.log("Signin", Signin);
     dispatch(UserData(Signin));
     dispatch(loginSuccessData(Signin, toast, navigate));
-  
   };
 
   return (
