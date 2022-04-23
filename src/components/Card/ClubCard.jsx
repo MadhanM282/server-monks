@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useSelector } from 'react-redux';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -29,6 +30,14 @@ const ExpandMore = styled((props) => {
 export const ClubCard =({event}) => {
     const [expanded, setExpanded] = React.useState(false);
 
+    const { user } = useSelector((store) => store.auth);
+
+
+    console.log('user', user);
+
+
+
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -37,9 +46,10 @@ export const ClubCard =({event}) => {
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
                 avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
-                    </Avatar>
+                    // <Avatar  aria-label="recipe">
+                    //   {user.user_img?  <img src={user.user_img} alt={ ""}/>:""}
+                    // </Avatar>
+                    <Avatar sx={{ bgcolor: red[500] }} alt={user.user.FirstName} src={user.user_img} />
                 }
                 action={
                     <IconButton aria-label="settings">
@@ -57,9 +67,7 @@ export const ClubCard =({event}) => {
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
+                   {event.description}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
