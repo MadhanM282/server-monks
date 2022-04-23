@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css";
 import { SignupSignin } from "./components/SignupSignIn/signin";
 import { Route, Routes } from "react-router";
 import { Club } from "./components/CreateClub/club";
@@ -7,15 +7,15 @@ import { Profile } from "./components/Profile/Profile";
 import { NotFound } from "./components/NotFound";
 import { MainHome } from "./components/Home/MainHome";
 import WebRTC from "./components/WEBRTC/Main";
-import { CardDetails } from './components/CartPage/Card';
-import {MYCLUBS} from './components/My Clubs/myclub'
-import { GeneralChat } from './components/WEBRTC/GeneralChat';
+import { CardDetails } from "./components/CartPage/Card";
+import { MYCLUBS } from "./components/My Clubs/myclub";
+import { GeneralChat } from "./components/GeneralChat/GeneralChat";
 
 function App() {
   return (
     <div className="App">
       {/* <ResponsiveAppBar /> */}
-  
+
       <Routes>
         <Route path="/" element={<MainHome />} />
         <Route path="*" element={<NotFound />} />
@@ -23,9 +23,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/club" element={<Club />} />
         <Route path="/RTC" element={<WebRTC />} />
-        <Route path="/clubDetails" element={<CardDetails/>} />
+        <Route path="/clubDetails" element={<CardDetails />} />
         <Route path="/myclubs" element={<MYCLUBS />} />
-        <Route path="/general" element={<GeneralChat />}/>
+        <Route path="/general-chat" element={<GeneralChat />} />
       </Routes>
     </div>
   );
