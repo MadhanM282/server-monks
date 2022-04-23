@@ -2,13 +2,14 @@ import axios from "axios";
 
 export const CLUB_LIST = "CLUB_LIST";
 
-export const CLUB_ERROR = "CLUB_ERROR";
-
-export const CLUB_LODING = "CLUB_LODING";
 
 export const GET_CLUB = "GET_CLUB";
 
 export const UPDATE_CLUB = "UPDATE_CLUB";
+
+export const CLUB_ERROR = "CLUB_ERROR";
+
+export const CLUB_LODING = "CLUB_LODING";
 
 export const clubLoding = () => ({ type: CLUB_LODING });
 
@@ -61,11 +62,11 @@ export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
     .patch(`https://server-monks-backend.herokuapp.com/clubs/${id}`, data)
     .then(({ data }) => {
       dispatch(updateClubList(data));
-      toast.success("club Added!", {
+      toast.success("Suscribed Added!", {
         position: "top-center",
       });
       setTimeout(() => {
-        navigate("/");
+        navigate("/clubDetails");
       }, 1000);
     })
     .catch((err) => {
@@ -75,3 +76,5 @@ export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
       });
     });
 };
+
+

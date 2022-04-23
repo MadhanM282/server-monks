@@ -68,6 +68,7 @@ export const ClubCard =({event}) => {
             <CardActions disableSpacing>
                 <Button sx={{ color: "#ff0077" }} onClick={()=>{
                     dispatch(Club(event))
+                    
                     navigate(`/clubDetails`)
                 }} >View More</Button>
                 

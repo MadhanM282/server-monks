@@ -26,6 +26,10 @@ export const Home = () => {
 
   const { clubList, loding, error } = useSelector((store) => store.club);
 
+  
+  const checking = useSelector((store) => store.club);
+  console.log('checking', checking);
+
   const { isAuthenticated } = useSelector((store) => store.auth);
 
 
@@ -65,6 +69,7 @@ export const Home = () => {
 
   const handleChangeType = (e, value) => {
     setFilter(value);
+    console.log('value', value);
     // if (e.target.id === "type") {
     //   setFilter(`type=${e.target.value}`)
 

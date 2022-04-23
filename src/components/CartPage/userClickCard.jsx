@@ -15,15 +15,29 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import ResponsiveAppBar from "../Navbar/Navbar";
+import { updateClubListData } from "../../Redux/Home/clubHomeAction";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const CardDetails = () => {
+
+    const navigate = useNavigate()
+
     const { Club, user } = useSelector((store) => store.Rtc);
+
+    console.log('Club', Club._id);
     const { firstName } = useSelector((store) => store.auth.user.user);
+
+    const dispatch = useDispatch();
+
+    const handleChangeUpdate = () => {
+        dispatch(updateClubListData(Club, Club._id, toast, navigate))
+    }
 
     return (
         <>
@@ -43,7 +57,7 @@ export const CardDetails = () => {
                     </Typography>
                     <Box sx={{ mt: 3}}>
 
-                    <Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" }, () => ({ '&:hover': { color: 'black' } })]}>Subscribe</Button>      
+                    <Button onClick={handleChangeUpdate} sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" }, () => ({ '&:hover': { color: 'black' } })]}>Subscribe</Button>      
                     </Box>
  
                     <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
