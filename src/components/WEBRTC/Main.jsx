@@ -9,6 +9,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Channel from './Components/Channel';
 import { useParams } from 'react-router';
+import ResponsiveAppBar from '../Navbar/Navbar';
+import { Box } from '@mui/material';
 
 firebase.initializeApp({
     apiKey: "AIzaSyAUxTeVGIN_aoxl8opqd0gQ-N_9eRW_66Y",
@@ -21,7 +23,7 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const db = firebase.firestore();
 function WebRTC() {
-    const {id} = useParams()
+    const { id } = useParams()
     console.log('id', id);
     const [user, setUser] = useState(() => auth.currentUser);
     const [initializing, setInitializing] = useState(true)
@@ -61,15 +63,17 @@ function WebRTC() {
     if (initializing) return "Loading ... ";
 
     return (
-
-        <div>
-            {user ? (
-                <>
-                    <Button onClick={signOut}>sign Out</Button>
-                    <Channel user={user} db={db} />
-                </>
-            ) : (<Button onClick={signInWithGoogle}>sign  in</Button>)}
-        </div>
+        <Box>
+            <ResponsiveAppBar />
+            <Box sx={{ mt: 15, width: "70%", border: 0, ml: 5, p: 2, boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset"}}>
+                {user ? (
+                    <>
+                        <Button onClick={signOut}>sign Out</Button>
+                        <Channel user={user} db={db} />
+                    </>
+                ) : (<Button onClick={signInWithGoogle}>sign  in</Button>)}
+            </Box>
+        </Box>
     )
 }
 
