@@ -28,6 +28,7 @@ export const Home = () => {
 
   const { isAuthenticated } = useSelector((store) => store.auth);
 
+  const types = ["Education","Gaming","Exploration","Adventure","Coding","Music","Video","Photography"]
 
   if (!isAuthenticated) {
     return <Navigate to="/signin" />
@@ -37,7 +38,7 @@ export const Home = () => {
 
   const size = clubList.totalPages;
 
-  const types = clubList.clubs;
+  // const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
 
@@ -105,14 +106,14 @@ export const Home = () => {
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
               value={filter}
-              onChange={handleChangeType}
+              // onChange={handleChangeType}
               label="Type"
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
               {types && types.map((e) => {
-                return <MenuItem key={e.id} id="type" value={e.type}>{e.type}</MenuItem>
+                return <MenuItem key={e} onClick={handleChangeType} id={e} value={e}>{e}</MenuItem>
               })}
             </Select>
           </FormControl>
