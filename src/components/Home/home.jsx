@@ -45,7 +45,7 @@ export const Home = () => {
 
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
-  const size =clubList.totalPages;
+  const size = clubList.totalPages;
   console.log("size", size);
 
   // const types = clubList.clubs;
@@ -170,7 +170,6 @@ export const Home = () => {
             <InputLabel
               sx={[
                 {
-                 
                   color: "#202020",
                 },
                 () => ({ "&:hover": { color: "#202020", bgcolor: "#474747" } }),
@@ -184,8 +183,7 @@ export const Home = () => {
               id="demo-simple-select-standard"
               value={filter}
               onChange={(e) => {
-               
-              setFilter(e.target.value)
+                setFilter(e.target.value);
               }}
               label="Type"
             >
