@@ -171,7 +171,7 @@ export const Home = () => {
             <InputLabel
               sx={[
                 {
-                  boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
+                 
                   color: "#202020",
                 },
                 () => ({ "&:hover": { color: "#202020", bgcolor: "#474747" } }),
@@ -184,7 +184,10 @@ export const Home = () => {
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
               value={filter}
-              // onChange={handleChangeType}
+              onChange={(e) => {
+               
+              setFilter(e.target.value)
+              }}
               label="Type"
             >
               <MenuItem value="">
@@ -195,7 +198,7 @@ export const Home = () => {
                   return (
                     <MenuItem
                       key={e}
-                      onClick={handleChangeType}
+                      // onClick={handleChangeType}
                       id={e}
                       value={e}
                     >
@@ -227,7 +230,7 @@ export const Home = () => {
       <br />
       <Box sx={{ width: "fit-content", margin: "auto" }}>
         <Stack spacing={4}>
-          <Pagination count={size} page={page} onChange={handleChangePage} />
+          <Pagination count={size-1} page={page} onChange={handleChangePage} />
         </Stack>
       </Box>
       <br />
