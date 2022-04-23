@@ -32,7 +32,7 @@ const ExpandMore = styled((props) => {
 
 export const ClubCard =({event}) => {
 
-    const { firstName } = useSelector((store) => store.auth.user.user);
+    // const { firstName } = useSelector((store) => store.auth.user.user);
 
     const { user } = useSelector((store) => store.auth);
 
@@ -46,7 +46,7 @@ export const ClubCard =({event}) => {
         <Card sx={{ maxWidth: 345, border: 0, boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px" }}>
             <CardHeader
                 avatar={
-                    <Avatar sx={{ bgcolor: "#ff0077" }} alt={firstName} src={user.user_img} />
+                    <Avatar sx={{ bgcolor: "#ff0077" }}  src={user.user_img} />
                 }
                 action={
                     <IconButton aria-label="settings">

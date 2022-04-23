@@ -1,9 +1,8 @@
 import { LOGIN_ERROR, LOGIN_LODING, LOGIN_SUCCESS, LOGOUT } from "./authAction";
-
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem("auth") || false,
   token: "",
-  user: {},
+  user:{},
   loding: false,
   error: false,
 };
