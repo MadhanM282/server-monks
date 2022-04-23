@@ -110,12 +110,8 @@ export const Home = () => {
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "20px",
-<<<<<<< HEAD
-          // border: "1px solid"
-=======
           border: "1px solid",
           marginTop:"20px"
->>>>>>> 9ff6621c2033a8f7ff9d0adb74469283c2e25973
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {
