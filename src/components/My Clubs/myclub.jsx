@@ -38,7 +38,7 @@ export const MYCLUBS = () => {
             <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px" }}>
               <CardHeader
                 avatar={
-                  <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" />
+                  <Avatar aria-label="recipe" />
 
                   // <Avatar alt="Remy Sharp" src="" />
                 }
