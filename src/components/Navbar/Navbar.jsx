@@ -118,7 +118,7 @@ const ResponsiveAppBar = () => {
                 My Clubs
               </Button>
               <Button
-               
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
