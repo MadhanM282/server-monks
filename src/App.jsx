@@ -6,6 +6,7 @@ import ResponsiveAppBar from "./components/Navbar/Navbar";
 import { Profile } from "./components/Profile/Profile";
 import { NotFound } from "./components/NotFound";
 import { MainHome } from "./components/Home/MainHome";
+import WebRTC from "./components/WEBRTC/Main";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signin" element={<SignupSignin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/club" element={<Club />} />
+        <Route path="/RTC" element={<WebRTC />} />
       </Routes>
     </div>
   );

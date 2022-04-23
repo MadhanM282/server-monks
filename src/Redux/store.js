@@ -13,17 +13,6 @@ const composeEnhancers =
 
 const middleware = [thunk];
 
-<<<<<<< HEAD
-export const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-// export const store = createStore(
-//   "reducer add here",
-//   composeWithDevTools(applyMiddleware(...middleware))
-// );
-
-=======
 const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
 const rootReducer = combineReducers({
@@ -33,4 +22,3 @@ const rootReducer = combineReducers({
 });
 
 export const store = createStore(rootReducer, enhancer);
->>>>>>> 1a1099fed03fd09b3aa0e0310f2c544f6ca8b1c7
