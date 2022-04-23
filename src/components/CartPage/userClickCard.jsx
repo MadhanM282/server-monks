@@ -47,7 +47,8 @@ export const CardDetails = () => {
                     </Box>
  
                     <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
-                   
+                    <Box sx={{ mt: 3 }}>Creator-{firstName}</Box>
+
             </Box>
         </Box>
         </>

@@ -52,7 +52,7 @@ const ResponsiveAppBar = () => {
       <AppBar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            {/* <img style={{lineHeight:"0px"}} src="https://img.icons8.com/emoji/344/school-emoji.png"/> */}
+            <img onClick={()=> navigate("/")} style={{lineHeight:"0px"}} src="https://img.icons8.com/emoji/44/school-emoji.png"/>
             <Typography
               variant="h6"
               noWrap
