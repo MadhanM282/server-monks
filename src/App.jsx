@@ -18,7 +18,7 @@ function App() {
         <Route path="/signin" element={<SignupSignin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/club" element={<Club />} />
-        <Route path="/RTC" element={<WebRTC />} />
+        <Route path="/RTC/:id" element={<WebRTC />} />
       </Routes>
     </div>
   );
