@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import { clubHomeReducer } from "./Home/clubHomeReducer";
 import { registerReducer } from "./register/registerReducer";
 import { RwtReducer } from "./Rtc/reducer";
+import { suscribeReducer } from "./suscribe/suscribeReducer";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   register: registerReducer,
   club: clubHomeReducer,
   Rtc: RwtReducer,
+  suscribe: suscribeReducer,
 });
 
 export const store = createStore(

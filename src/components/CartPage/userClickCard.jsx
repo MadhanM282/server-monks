@@ -25,15 +25,35 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Chat from "../ClubChat/Chat";
+import { updateClubListDataa, updateUserInfoData } from "../../Redux/suscribe/suscribeAction";
 export const CardDetails = () => {
   const navigate = useNavigate();
 
   const { Club, user } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
+  // const {user} = useSelector((store) => store.auth)
+
   const firstName = Club.creator_id.firstName;
 
+  const userId = localStorage.getItem("id");
+
+  const clubId = Club._id;
+
   const dispatch = useDispatch();
+
+  const [clubD, setClubD] = useState({});
+
+  useEffect(() => {
+
+    setClubD(Club);
+  }, []);
+
+
+  const handleChange = () => {
+    dispatch(updateClubListDataa());
+    dispatch(updateUserInfoData());
+  }
 
   return (
     <>
