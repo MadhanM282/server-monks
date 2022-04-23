@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import Button from './Components/Button'
+import { useState, useEffect } from "react";
+import Button from "./Components/Button";
 //import firebase from 'firebase/app';
 
 //import {app,database} from "./Components/firebase.config"
-import firebase from 'firebase/compat/app';
+import firebase from "firebase/compat/app";
 
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -13,54 +13,52 @@ import ResponsiveAppBar from '../Navbar/Navbar';
 import { Box } from '@mui/material';
 
 firebase.initializeApp({
-    apiKey: "AIzaSyAUxTeVGIN_aoxl8opqd0gQ-N_9eRW_66Y",
-    authDomain: "server-monk.firebaseapp.com",
-    projectId: "server-monk",
-    storageBucket: "server-monk.appspot.com",
-    messagingSenderId: "144181511659",
-    appId: "1:144181511659:web:05662f99570fecce2c05ae"
-})
+  apiKey: "AIzaSyAUxTeVGIN_aoxl8opqd0gQ-N_9eRW_66Y",
+  authDomain: "server-monk.firebaseapp.com",
+  projectId: "server-monk",
+  storageBucket: "server-monk.appspot.com",
+  messagingSenderId: "144181511659",
+  appId: "1:144181511659:web:05662f99570fecce2c05ae",
+});
 const auth = firebase.auth();
 const db = firebase.firestore();
 function WebRTC() {
-    const { id } = useParams()
-    console.log('id', id);
-    const [user, setUser] = useState(() => auth.currentUser);
-    const [initializing, setInitializing] = useState(true)
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if (user) {
-                setUser(user);
-            }
-            else {
-                setUser(null);
-            }
-            if (initializing) {
-                setInitializing(false);
-            }
-        })
-        return unsubscribe
-    }, [])
-    const signInWithGoogle = async () => {
+  const { id } = useParams();
+  console.log("id", id);
+  const [user, setUser] = useState(() => auth.currentUser);
+  const [initializing, setInitializing] = useState(true);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      if (initializing) {
+        setInitializing(false);
+      }
+    });
+    return unsubscribe;
+  }, []);
+  const signInWithGoogle = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
 
-        const provider = new firebase.auth.GoogleAuthProvider();
+    auth.useDeviceLanguage();
 
-        auth.useDeviceLanguage();
-
-        try {
-            await auth.signInWithPopup(provider);
-        } catch (error) {
-            console.log('error:', error)
-        }
+    try {
+      await auth.signInWithPopup(provider);
+    } catch (error) {
+      console.log("error:", error);
     }
-    const signOut = async () => {
-        try {
-            await firebase.auth().signOut();
-        } catch (error) {
-            console.log('error:', error.message)
-        }
+  };
+  const signOut = async () => {
+    try {
+      await firebase.auth().signOut();
+    } catch (error) {
+      console.log("error:", error.message);
     }
-    if (initializing) return "Loading ... ";
+  };
+  if (initializing) return "Loading ... ";
 
     return (
         <Box>
@@ -77,5 +75,4 @@ function WebRTC() {
     )
 }
 
-
-export default WebRTC
+export default WebRTC;
