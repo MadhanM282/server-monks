@@ -101,10 +101,6 @@ export const Club = () => {
         </Box>
 
       </Box>
-
-
-
-
     </>
 
   )
