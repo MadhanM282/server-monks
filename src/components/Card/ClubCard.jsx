@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Button } from '@mui/material';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -63,22 +64,25 @@ export const ClubCard =({event}) => {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
+                <Button onClick={()=>{
+                    
+                }} >View More</Button>
+                {/* <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                 </IconButton>
                 <IconButton aria-label="share">
                     <ShareIcon />
-                </IconButton>
-                <ExpandMore
+                </IconButton> */}
+                {/* <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
                 >
                     <ExpandMoreIcon />
-                </ExpandMore>
+                </ExpandMore> */}
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>Method:</Typography>
                     <Typography paragraph>
@@ -106,7 +110,7 @@ export const ClubCard =({event}) => {
                         Set aside off of the heat to let rest for 10 minutes, and then serve.
                     </Typography>
                 </CardContent>
-            </Collapse>
+            </Collapse> */}
         </Card>
     );
 }
