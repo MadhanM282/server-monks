@@ -31,9 +31,7 @@ export const CardDetails = () => {
   const { Club, user } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
-  //    const {id} = Club._id;
-  // const { firstName } = useSelector((store) => store.auth.user.user);
-  const firstName = localStorage.getItem("user");
+  const firstName = Club.creator_id.firstName
 
   const dispatch = useDispatch();
 
