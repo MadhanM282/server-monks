@@ -4,39 +4,42 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from 'nanoid';
 import { clubListData } from '../../Redux/Home/clubHomeAction';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { TextField, Box, InputLabel, Select, MenuItem } from '@mui/material';
+import { width } from '@mui/system';
+
 
 
 
 export const Club = () => {
-  const { user } = useSelector((store) => store.auth),dispatch=useDispatch();
-  const navigate=useNavigate();
+  const { user } = useSelector((store) => store.auth), dispatch = useDispatch();
+  console.log('user', user);
+  const navigate = useNavigate();
   // console.log(user);
   const [clubData, changeData] = useState({
     club_title: "",
     image: "",
     type: "",
     description: "",
-    creator_id: user._id
+    creator_id: user.user._id
 
   })
   console.log(clubData);
-
-
 
   const handleChange = (e) => {
     // console.log(title, desc, cat);
     // alert("Data added succesfully");
     // navigate('/');
-    // console.log(e, e.target.value);
+    console.log(e, e.target.value);
     const { id, value } = e.target;
-    changeData({...clubData,[id]: value });
-  
+    changeData({ ...clubData, [id]: value });
 
   }
   const submitData = (e) => {
     e.preventDefault();
-    // dispatch(clubListData(clubData,navigate))
-    console.log("The data is",clubData);
+    dispatch(clubListData(clubData, toast, navigate))
+    console.log("The data is", clubData);
 
   }
 
@@ -45,14 +48,11 @@ export const Club = () => {
       value: "grouping",
       label: "Grouping",
       id: nanoid()
-
-
     },
     {
       value: "dressing",
       label: "Dressing",
       id: nanoid()
-
     },
     {
       value: "inspiration",
@@ -86,29 +86,23 @@ export const Club = () => {
 
   return (
     <>
-      <div id='contain'>
-        <form action="" onSubmit={submitData}>
-          <label htmlFor="">Title</label> <br />
-          <input type="text" placeholder='Enter the title...' id='club_title' required
-            onChange={handleChange} /> <br />
-          <label htmlFor="">Select image</label>
-          <input type="file" placeholder='choose image....' id='image' required
-            accept='image/*' onChange={handleChange} /> <br />
-          <label htmlFor="">Type</label>
-          <select name="" id="type" onChange={handleChange}>
-            {options.map((e) => (
-              <option value={e.value} key={e.id} id='type'>{e.label}</option>
-            ))}
-          </select> <br />
-          <label htmlFor="">Description</label>
-          <textarea name="" id="description" cols="30" rows="10"
-            placeholder='Enter the description...'
-            onChange={handleChange}
-          ></textarea> <br />
-          <button>Create Club</button>
-        </form>
+      <Box sx={{ border: '1px solid white', m: "auto",display:"flex",justifyContent: 'center'}} >
 
-      </div>
+        <Box>
+          <TextField
+            variant="outlined" sx={{bgcolor: '#FFFFFF',borderRadius:"10px"}}  id="club_title" label="Enter the title..." onChange={handleChange} />
+          <InputLabel sx={{ border: '1px solid white', color: "white", width: 100 }} id='type'>Type</InputLabel>
+          <Select id='type' value={"type"} label={"type"}
+            onChange={handleChange} sx={{ border: '1px solid white' }}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+      </Box>
+
+
+
 
     </>
 

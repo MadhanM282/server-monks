@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { ClubCard } from "../Card/ClubCard";
+import { Navigate } from "react-router";
 
 export const Home = () => {
 
@@ -22,6 +23,14 @@ export const Home = () => {
 
 
   const { clubList, loding, error } = useSelector((store) => store.club);
+
+  const { isAuthenticated} = useSelector((store) => store.auth);
+
+
+  if(!isAuthenticated){
+    return <Navigate to="/signin"/>
+  }
+
   console.log('clubList', clubList.totalPages);
 
   const size = clubList.totalPages;
