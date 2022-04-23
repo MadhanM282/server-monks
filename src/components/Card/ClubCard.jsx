@@ -17,7 +17,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import { Navigate, useNavigate } from "react-router";
-import { Club } from "../../Redux/Rtc/actions";
+import { ClubAction } from "../../Redux/Rtc/actions";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -31,8 +31,6 @@ const ExpandMore = styled((props) => {
 }));
 
 export const ClubCard = ({ event }) => {
-    // const { firstName } = useSelector((store) => store.auth.user.user);
-
     const { user } = useSelector((store) => store.auth);
 
     const navigate = useNavigate();
@@ -81,9 +79,9 @@ export const ClubCard = ({ event }) => {
                     ]}
                     //   sx={{ color: "#ff0077" }}
                     onClick={() => {
-                        dispatch(Club(event));
-
-                        navigate(`/clubDetails`);
+                        dispatch(ClubAction(event));
+                            //clubDetails/:id
+                        navigate(`/clubDetails/${event._id}`);
                     }}
                 >
                     View More

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -29,10 +29,14 @@ import { updateClubListDataa, updateUserInfoData } from "../../Redux/suscribe/su
 export const CardDetails = () => {
   const navigate = useNavigate();
 
-  const { Club, user } = useSelector((store) => store.Rtc);
+  const {id} = useParams()
+
+  const { Club } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
-  // const {user} = useSelector((store) => store.auth)
+
+  const {user} = useSelector((store) => store.auth)
+  console.log('users', user);
 
   const firstName = Club.creator_id.firstName;
 
@@ -43,15 +47,21 @@ export const CardDetails = () => {
   const dispatch = useDispatch();
 
   const [clubD, setClubD] = useState({});
+  console.log('clubD', clubD);
 
   useEffect(() => {
 
     setClubD(Club);
   }, []);
 
+  const handeSub = ()=>{
+    setClubD({...clubD,subcription_user_id:[...clubD.subcription_user_id,userId]}).then(()=>{
+        handleChange()
+    })
+  }
 
   const handleChange = () => {
-    dispatch(updateClubListDataa());
+    dispatch(updateClubListDataa(clubD,clubId, toast));
     dispatch(updateUserInfoData());
   }
 
@@ -102,6 +112,9 @@ export const CardDetails = () => {
                 { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
                 () => ({ "&:hover": { color: "black" } }),
               ]}
+              onClick={()=>{
+                handeSub()
+              }}
             >
               Subscribe
             </Button>
@@ -111,7 +124,7 @@ export const CardDetails = () => {
           <Box sx={{ mt: 3 }}>Creator-{firstName}</Box>
         </Box>
       </Box>
-      <Chat />
+      {/* <Chat /> */}
     </>
   );
 };

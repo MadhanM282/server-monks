@@ -17,13 +17,17 @@ export const loginSuccess = (payload) => ({ type: LOGIN_SUCCESS, payload });
 
 export const logoutUser = () => ({ type: LOGOUT });
 
+// 
+
 export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
   dispatch(loginLoding());
   // dispatch(UserData(data))
+  
   axios
     .post("https://server-monks-backend.herokuapp.com/login", data)
     .then(({ data }) => {
       localStorage.setItem("user", data.user.firstName);
+      let DATA = data
       dispatch(loginSuccess(data));
       console.log("logindata", data);
 
@@ -36,6 +40,8 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
+      console.log('DATA', DATA);
+      localStorage.setItem("UserData",JSON.stringify(DATA))
     })
     .catch((err) => {
       console.log("err", err.massage);
