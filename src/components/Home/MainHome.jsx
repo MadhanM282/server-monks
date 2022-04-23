@@ -6,7 +6,8 @@ export const MainHome = () => {
     return (
         <Box>
             <ResponsiveAppBar />
-            <Home/>
+            <Home />
+           
         </Box>
     )
 }

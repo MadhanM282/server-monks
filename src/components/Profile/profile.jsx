@@ -26,7 +26,13 @@ function Profile(props) {
       <div className="main-card">
         <div className="card-container">
           <header>
-            <img ref={uploadedImage} alt="" />
+            <img style={{
+              margin: "auto",
+              width: "100px",
+              border: "solid white 4px",
+              borderRadius: "50%",
+              marginTop: "75px",
+            }} ref={uploadedImage} alt="" />
           </header>
           <div
             style={{
@@ -78,7 +84,7 @@ function Profile(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export { Profile };

@@ -42,7 +42,7 @@ const ResponsiveAppBar = () => {
     palette: {
       mode: "light",
       primary: {
-        main: "#181818",
+        main: "#000000",
       },
     },
   });
@@ -53,7 +53,8 @@ const ResponsiveAppBar = () => {
      
     <AppBar>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+          <Toolbar disableGutters>
+            {/* <img style={{lineHeight:"0px"}} src="https://img.icons8.com/emoji/344/school-emoji.png"/> */}
           <Typography
             variant="h6"
             noWrap

@@ -14,6 +14,7 @@ const initialState = {
   updateList: [],
 };
 
+
 export const clubHomeReducer = (store = initialState, { type, payload }) => {
   switch (type) {
     case CLUB_LIST:

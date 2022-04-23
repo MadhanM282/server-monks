@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Channel from './Components/Channel';
+import { useParams } from 'react-router';
 
 firebase.initializeApp({
     apiKey: "AIzaSyAUxTeVGIN_aoxl8opqd0gQ-N_9eRW_66Y",
@@ -20,6 +21,8 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const db = firebase.firestore();
 function WebRTC() {
+    const {id} = useParams()
+    console.log('id', id);
     const [user, setUser] = useState(() => auth.currentUser);
     const [initializing, setInitializing] = useState(true)
     useEffect(() => {

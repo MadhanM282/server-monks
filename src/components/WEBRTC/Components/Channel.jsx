@@ -20,6 +20,7 @@ const Channel = ({ user = null, db = null }) => {
           }));
 
           setMessage(data);
+          console.log('data', data);
         });
       return unsubscribe;
     }
