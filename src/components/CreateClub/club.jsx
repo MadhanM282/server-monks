@@ -95,7 +95,9 @@ export const Club = () => {
           <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="type" label="Type " onChange={handleChange} /><br />
           <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="description" label="Description" onChange={handleChange} /><br />
           <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="image" label="Image URL" onChange={handleChange} /><br />
-          <Button sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222",ml:"40%" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} >Add Club</Button>
+          <Button onClick={(e)=>{
+            submitData(e)
+          }} sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222",ml:"40%" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} >Add Club</Button>
         </Box>
 
       </Box>
