@@ -34,7 +34,7 @@ const Message = ({
       </div>
       <p
         style={{
-          color: "white",
+          color: "black",
           fontSize: "17px",
           marginLeft: "50px",
           marginTop: "-10px",
