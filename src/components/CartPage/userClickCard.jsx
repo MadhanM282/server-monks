@@ -55,13 +55,12 @@ export const CardDetails = () => {
   }, []);
 
   const handeSub = ()=>{
-    setClubD({...clubD,subcription_user_id:[...clubD.subcription_user_id,userId]}).then(()=>{
-        handleChange()
-    })
+    setClubD({...clubD,subcription_user_id:[...clubD.subcription_user_id,userId]})
+    handleChange()
   }
 
   const handleChange = () => {
-    dispatch(updateClubListDataa(clubD,clubId, toast));
+    dispatch(updateClubListDataa(clubD,clubId, toast,navigate));
     dispatch(updateUserInfoData());
   }
 
