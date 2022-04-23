@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export const Club = () => {
   const { user } = useSelector((store) => store.auth), dispatch = useDispatch();
+  console.log('user', user);
   const navigate = useNavigate();
   // console.log(user);
   const [clubData, changeData] = useState({
@@ -17,7 +18,7 @@ export const Club = () => {
     image: "",
     type: "",
     description: "",
-    creator_id: user._id
+    creator_id: user.user._id
 
   })
   console.log(clubData);
@@ -89,7 +90,7 @@ export const Club = () => {
       <ResponsiveAppBar />
       <div id='contain'>
 
-        <form action="" onSubmit={submitData}>
+        <form>
           <label htmlFor="">Title</label> <br />
           <input type="text" placeholder='Enter the title...' id='club_title' required
             onChange={handleChange} /> <br />
@@ -107,8 +108,8 @@ export const Club = () => {
             placeholder='Enter the description...'
             onChange={handleChange}
           ></textarea> <br />
-          <button onClick={() => {
-
+          <button type="submit" onClick={(e) => {
+            submitData(e)
           }}>Create Club</button>
         </form>
 
