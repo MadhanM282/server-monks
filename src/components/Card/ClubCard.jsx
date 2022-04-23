@@ -15,6 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useSelector } from 'react-redux';
+import { Button } from '@mui/material';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -49,7 +50,7 @@ export const ClubCard =({event}) => {
                     // <Avatar  aria-label="recipe">
                     //   {user.user_img?  <img src={user.user_img} alt={ ""}/>:""}
                     // </Avatar>
-                    <Avatar sx={{ bgcolor: red[500] }} alt={user.user.FirstName} src={user.user_img} />
+                    <Avatar sx={{ bgcolor: red[500] }} src={user.user_img} />
                 }
                 action={
                     <IconButton aria-label="settings">

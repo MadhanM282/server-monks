@@ -16,6 +16,9 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
+
+  const { user } = useSelector((store) => store.auth);
+  console.log('usersdfgfhj', user.user_img);
   return (
     <div>
       <ResponsiveAppBar />
@@ -32,7 +35,10 @@ function Profile(props) {
               border: "solid white 4px",
               borderRadius: "50%",
               marginTop: "75px",
-            }} ref={uploadedImage} alt="" />
+            }}
+              // src={user.user_img}
+              ref={uploadedImage}
+              alt="" />
           </header>
           <div
             style={{
