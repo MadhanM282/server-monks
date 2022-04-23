@@ -10,6 +10,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,8 +23,7 @@ export const MYCLUBS = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
-    const id = localStorage.getItem('id')
+    const id = localStorage.getItem("id");
     axios
       .get(`https://server-monks-backend.herokuapp.com/clubs/${id}`)
       .then(({ data }) => {
@@ -31,57 +31,65 @@ export const MYCLUBS = () => {
         SetData(data);
       });
   }, []);
-  return (
-    <Box>
-      <ResponsiveAppBar />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-around",
-          gap: "20px",
-          flexWrap: "wrap",
-        }}
-        
-      >
-        {data.map((ele) => {
-          return (
-            <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px" }}>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="recipe" />
 
-                  // <Avatar alt="Remy Sharp" src="" />
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    {/* <MoreVertIcon /> */}
-                  </IconButton>
-                }
-                title={ele.club_title}
-                subheader="September 14, 2016"
-              />
-              <CardMedia
-                component="img"
-                height="194"
-                image={ele.image}
-                alt={ele.club_title}
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  {ele.description}
-                </Typography>
-              </CardContent>
-              <CardActions
-                disableSpacing
-                sx={{ display: "flex", justifyContent: "space-between" }}
-              >
-                <Button>Subscribe</Button>
-                <Box>Members-{ele.subcription_user_id.length}</Box>
-              </CardActions>
-            </Card>
-          );
-        })}
-      </Box>
-    </Box>
+  return (
+    <>
+      {data ? (
+        <Box>
+          <ResponsiveAppBar />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              gap: "20px",
+              flexWrap: "wrap",
+            }}
+          >
+            {data.map((ele) => {
+              return (
+                <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px" }}>
+                  <CardHeader
+                    avatar={
+                      <Avatar aria-label="recipe" />
+
+                      // <Avatar alt="Remy Sharp" src="" />
+                    }
+                    action={
+                      <IconButton aria-label="settings">
+                        {/* <MoreVertIcon /> */}
+                      </IconButton>
+                    }
+                    title={ele.club_title}
+                    subheader="September 14, 2016"
+                  />
+                  <CardMedia
+                    component="img"
+                    height="194"
+                    image={ele.image}
+                    alt={ele.club_title}
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      {ele.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
+                    disableSpacing
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <Button>Subscribe</Button>
+                    <Box>Members-{ele.subcription_user_id.length}</Box>
+                  </CardActions>
+                </Card>
+              );
+            })}
+          </Box>
+        </Box>
+      ) : (
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
+      )}
+    </>
   );
 };
