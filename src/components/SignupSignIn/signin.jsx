@@ -2,8 +2,19 @@ import axios from "axios"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router"
+import { loginSuccessData } from "../../Redux/auth/authAction"
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css"
+import { registerSuccessData } from "../../Redux/register/registerAction"
+
+
+
 export const SignupSignin = () => {
+
+const dispatch = useDispatch();
+
     const navigate = useNavigate();
     // const dispatch = useDispatch();
     const [Signup,SetSignup] = useState({
@@ -33,18 +44,22 @@ export const SignupSignin = () => {
     
     const Register = ()=>{
         console.log('Signup', Signup);
-        axios.post(`https://server-monks-backend.herokuapp.com/register`,Signup).then(({data})=>{
-            console.log('Register data', data);
-        })
+        // axios.post(`https://server-monks-backend.herokuapp.com/register`,Signup).then(({data})=>{
+        //     console.log('Register data', data);
+        // })
+        dispatch(registerSuccessData(Signup, toast))
+        container.classList.remove("right-panel-active")
     }
     
     const Login = ()=>{
         console.log('Signin', Signin);
-        axios.post(`https://server-monks-backend.herokuapp.com/login`,Signin).then(({data})=>{
-            console.log('Login data', data);
-            navigate("/")
+        dispatch(loginSuccessData(Signin,toast,navigate))
+        // axios.post(`https://server-monks-backend.herokuapp.com/login`,Signin).then(({data})=>{
+        //     console.log('Login data', data);
+        //     navigate("/")
             
-        })
+        // })
+       
     }
 
     return (
@@ -94,6 +109,7 @@ export const SignupSignin = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }
