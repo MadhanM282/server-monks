@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
+import SendIcon from "@mui/icons-material/Send";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
@@ -112,7 +113,15 @@ export const CardDetails = () => {
           <Box sx={{ mt: 3 }}>Creator-{firstName}</Box>
         </Box>
       </Box>
-      <Chat />
+      {/* <Chat /> */}
+      <Button variant="contained" endIcon={<SendIcon />}>
+        <a
+          href="https://chat-app-custom.herokuapp.com"
+          style={{ textDecoration: "none" }}
+        >
+          Chat
+        </a>
+      </Button>
     </>
   );
 };
