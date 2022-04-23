@@ -9,7 +9,7 @@ import { RwtReducer } from "./Rtc/reducer";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__({})
+    ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__()
     : compose;
 
 const middleware = [thunk];
@@ -20,7 +20,10 @@ const rootReducer = combineReducers({
   auth: AuthReducer,
   register: registerReducer,
   club: clubHomeReducer,
-  Rtc:RwtReducer
+  Rtc: RwtReducer,
 });
 
-export const store = createStore(rootReducer, enhancer);
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
