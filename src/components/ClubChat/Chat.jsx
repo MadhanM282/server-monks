@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // const URL = 'ws://127.0.0.1:8080';
-const URL = "ws://chat-app-custom.herokuapp.com";
+// const URL = "ws://chat-app-custom.herokuapp.com:8081";
 
 const Chat = () => {
   const [user, setUser] = useState("Tarzan");

@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import { clubListData } from '../../Redux/Home/clubHomeAction';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { TextField, Box, InputLabel, Select, MenuItem, Button } from '@mui/material';
+import { TextField, Box, InputLabel, Select, MenuItem, Button, Autocomplete, FormControl } from '@mui/material';
 import { width } from '@mui/system';
 import ResponsiveAppBar from '../Navbar/Navbar';
 
@@ -26,14 +26,15 @@ export const Club = () => {
     creator_id: user.user._id
 
   })
+
+  const [filter, setFilter] = useState("");
+
   console.log(clubData);
 
   const handleChange = (e) => {
-    // console.log(title, desc, cat);
-    // alert("Data added succesfully");
-    // navigate('/');
     console.log(e, e.target.value);
     const { id, value } = e.target;
+    console.log('id', id);
     changeData({ ...clubData, [id]: value });
 
   }
@@ -43,7 +44,6 @@ export const Club = () => {
     console.log("The data is", clubData);
 
   }
-
   const options = [
     {
       value: "grouping",
@@ -85,19 +85,38 @@ export const Club = () => {
     }
   ]
 
+  const types = ["Education","Gaming","Exploration","Adventure","Coding","Music","Video","Photography"]
+
   return (
     <>
-    <ResponsiveAppBar/>
-      <Box sx={{ m: "auto",mt:"100px", display: "flex", justifyContent: 'center',width:"60%",p:3 }} >
+      <ResponsiveAppBar />
+      <Box sx={{ m: "auto", mt: "100px", display: "flex", justifyContent: 'center', width: "60%", p: 3 }} >
 
-        <Box sx={{p:2,width:"90%"}}>
-          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="club_title" label="Title" onChange={handleChange} /> <br />
-          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="type" label="Type " onChange={handleChange} /><br />
-          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="description" label="Description" onChange={handleChange} /><br />
-          <TextField  variant="outlined" sx={{mt:"10px", bgcolor: '#FFFFFF', borderRadius: "10px",width:"100%" }} id="image" label="Image URL" onChange={handleChange} /><br />
-          <Button onClick={(e)=>{
+        <Box sx={{ p: 2, width: "90%" }}>
+          <TextField variant="outlined" sx={{ mt: "10px", bgcolor: '#FFFFFF', borderRadius: "10px", width: "100%" }} id="club_title" label="Title" onChange={handleChange} /> <br />
+          {/* <TextField variant="outlined" sx={{ mt: "10px", bgcolor: '#FFFFFF', borderRadius: "10px", width: "100%" }} id="type" label="Type " onChange={handleChange} /><br /> */}
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            {/* <InputLabel sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", color: "#202020" }, () => ({ '&:hover': { color: '#202020', bgcolor: "#474747" } })]} id="demo-simple-select-standard-label">Filter by Type</InputLabel> */}
+            <select
+              style={{ width:"538%",height:"60px",padding:"10px",marginLeft:"-8px",border:"1px solid #b1b1b1",borderRadius:"5px",marginBottom:"-6px",fontSize:"15px",color:"#888888"}}
+            >
+              <option value="">
+                Type
+              </option>
+              {types && types.map((e) => {
+                return <option key={e} onClick={(e)=>{
+                  changeData({ ...clubData, type: e.target.id});
+                }} id={e} value={e}>{e}</option>
+              })}
+            </select>
+          </FormControl>
+
+
+          <TextField variant="outlined" sx={{ mt: "10px", bgcolor: '#FFFFFF', borderRadius: "10px", width: "100%" }} id="description" label="Description" onChange={handleChange} /><br />
+          <TextField variant="outlined" sx={{ mt: "10px", bgcolor: '#FFFFFF', borderRadius: "10px", width: "100%" }} id="image" label="Image URL" onChange={handleChange} /><br />
+          <Button onClick={(e) => {
             submitData(e)
-          }} sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff",bgcolor:"#222222",ml:"40%" }, () => ({ '&:hover': { color: '#fafafa',bgcolor:"#474747" } })]} >Add Club</Button>
+          }} sx={[{ boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)", m: 1, color: "#ffffff", bgcolor: "#222222", ml: "40%" }, () => ({ '&:hover': { color: '#fafafa', bgcolor: "#474747" } })]} >Add Club</Button>
         </Box>
 
       </Box>

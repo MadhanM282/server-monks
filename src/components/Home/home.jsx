@@ -33,7 +33,7 @@ export const Home = () => {
     return <Navigate to="/signin" />
   }
 
-  console.log('clubListxdcfvghbjn', clubList.clubs);
+  console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
 
@@ -64,11 +64,7 @@ export const Home = () => {
 
 
   const handleChangeType = (e, value) => {
-    setFilter(value);
-    // if (e.target.id === "type") {
-    //   setFilter(`type=${e.target.value}`)
-
-    // }
+    setFilter(e.target.value);
   }
 
   const handleChangeSort = (e) => {
@@ -96,7 +92,7 @@ export const Home = () => {
             component="div"
             sx={{ mr: 2, color: "white", display: { xs: "none", md: "flex" } }}
           >
-            CLUBS :- 
+            CLUBS :- {clubList.clubs.length}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-around", width: "40%", alignItems: "center" }}>
