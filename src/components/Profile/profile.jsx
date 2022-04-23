@@ -17,9 +17,9 @@ function Profile(props) {
       reader.readAsDataURL(file);
     }
   };
-
-  const s = useSelector((store) => store);
-  console.log("usersdfgfhj", s);
+  const name = localStorage.getItem("user");
+  const s = useSelector((store) => store.auth);
+  console.log("store", s);
   return (
     <div>
       <ResponsiveAppBar />
@@ -73,7 +73,7 @@ function Profile(props) {
             </div>
           </div>
           <h1 className="bold-text">
-            Jibin <span className="normal-text">23</span>
+            {name} <span className="normal-text">23</span>
           </h1>
           <h2 className="normal-text">Mangod</h2>
           <div className="social-container">
