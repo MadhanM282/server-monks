@@ -45,7 +45,8 @@ export const Home = () => {
 
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
-  const size = clubList.totalPages;
+  const size = 5;
+    // clubList.totalPages;
   console.log('size', size);
 
   // const types = clubList.clubs;

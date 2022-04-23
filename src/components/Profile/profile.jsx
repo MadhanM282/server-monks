@@ -18,8 +18,8 @@ function Profile(props) {
     }
   };
 
-  const { user } = useSelector((store) => store.auth);
-  console.log("usersdfgfhj", user.user_img);
+  const s = useSelector((store) => store);
+  console.log("usersdfgfhj", s);
   return (
     <div>
       <ResponsiveAppBar />
