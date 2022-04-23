@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
     palette: {
       mode: "light",
       primary: {
-        main: "#000000",
+        main: "#2a2929d1",
       },
     },
   });
