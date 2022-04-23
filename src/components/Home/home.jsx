@@ -13,6 +13,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { ClubCard } from "../Card/ClubCard";
 
 export const Home = () => {
 
@@ -115,7 +116,7 @@ export const Home = () => {
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {
-          return <EventCard key={event._id} event={event} />;
+          return <ClubCard key={event._id} event={event} />;
         })}
       </div>
       <br />
