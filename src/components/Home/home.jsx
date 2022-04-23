@@ -45,8 +45,7 @@ export const Home = () => {
 
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
-  const size = 5;
-  // clubList.totalPages;
+  const size =clubList.totalPages;
   console.log("size", size);
 
   // const types = clubList.clubs;
@@ -70,9 +69,9 @@ export const Home = () => {
     setPage(value);
   };
 
-  const handleChangeType = (e, value) => {
-    setFilter(e.target.value);
-  };
+  // const handleChangeType = (e, value) => {
+  //   setFilter(e.target.value);
+  // };
 
   const handleChangeSort = (e) => {
     if (e.target.value === "asc") {

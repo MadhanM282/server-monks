@@ -22,8 +22,10 @@ export const MYCLUBS = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+
+    const id = localStorage.getItem('id')
     axios
-      .get(`https://server-monks-backend.herokuapp.com/clubs/${user.user._id}`)
+      .get(`https://server-monks-backend.herokuapp.com/clubs/${id}`)
       .then(({ data }) => {
         console.log("data", data);
         SetData(data);
@@ -39,6 +41,7 @@ export const MYCLUBS = () => {
           gap: "20px",
           flexWrap: "wrap",
         }}
+        
       >
         {data.map((ele) => {
           return (

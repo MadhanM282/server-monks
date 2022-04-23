@@ -46,7 +46,7 @@ export const getClubData = (page, sort, filter) => (dispatch) => {
   dispatch(clubLoding());
   axios
     .get(
-      `https://server-monks-backend.herokuapp.com/clubs?count=${page}&sortBy=createdAt&OrderBy=${sort}&type=${filter}`
+      `https://server-monks-backend.herokuapp.com/clubs?page=${page}&sortBy=createdAt&OrderBy=${sort}&type=${filter}`
     )
     .then(({ data }) => {
       dispatch(getClubList(data));
