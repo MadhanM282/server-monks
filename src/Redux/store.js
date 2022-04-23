@@ -5,6 +5,7 @@ import { AuthReducer } from "./auth/authReducer";
 import thunk from "redux-thunk";
 import { clubHomeReducer } from "./Home/clubHomeReducer";
 import { registerReducer } from "./register/registerReducer";
+import { RwtReducer } from "./Rtc/reducer";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   auth: AuthReducer,
   register: registerReducer,
   club: clubHomeReducer,
+  Rtc:RwtReducer
 });
 
 export const store = createStore(rootReducer, enhancer);
