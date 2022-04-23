@@ -24,6 +24,7 @@ import { updateClubListData } from "../../Redux/Home/clubHomeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Chat from "../ClubChat/Chat"
 export const CardDetails = () => {
 
     const navigate = useNavigate()
@@ -65,6 +66,7 @@ export const CardDetails = () => {
 
             </Box>
         </Box>
+        <Chat />
         </>
     )
 

@@ -26,22 +26,23 @@ export const Home = () => {
 
   const { clubList, loding, error } = useSelector((store) => store.club);
 
-  
+
   const checking = useSelector((store) => store.club);
   console.log('checking', checking);
 
   const { isAuthenticated } = useSelector((store) => store.auth);
 
+  const types = ["Education","Gaming","Exploration","Adventure","Coding","Music","Video","Photography"]
 
   if (!isAuthenticated) {
     return <Navigate to="/signin" />
   }
 
-  console.log('clubListxdcfvghbjn', clubList.clubs);
+  console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
 
-  const types = clubList.clubs;
+  // const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
 
@@ -68,12 +69,7 @@ export const Home = () => {
 
 
   const handleChangeType = (e, value) => {
-    setFilter(value);
-    console.log('value', value);
-    // if (e.target.id === "type") {
-    //   setFilter(`type=${e.target.value}`)
-
-    // }
+    setFilter(e.target.value);
   }
 
   const handleChangeSort = (e) => {
@@ -101,7 +97,7 @@ export const Home = () => {
             component="div"
             sx={{ mr: 2, color: "white", display: { xs: "none", md: "flex" } }}
           >
-            CLUBS :- 
+            CLUBS :- {clubList.clubs.length}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-around", width: "40%", alignItems: "center" }}>
@@ -114,14 +110,14 @@ export const Home = () => {
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
               value={filter}
-              onChange={handleChangeType}
+              // onChange={handleChangeType}
               label="Type"
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
               {types && types.map((e) => {
-                return <MenuItem key={e.id} id="type" value={e.type}>{e.type}</MenuItem>
+                return <MenuItem key={e} onClick={handleChangeType} id={e} value={e}>{e}</MenuItem>
               })}
             </Select>
           </FormControl>
