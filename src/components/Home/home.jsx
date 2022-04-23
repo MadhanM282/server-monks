@@ -58,14 +58,14 @@ export const Home = () => {
 
   return (
 
-    <Box sx={{mt:20}}>
+    <Box sx={{mt:20,bgcolor:"transparent"}}>
       <div
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "20px",
-          border: "1px solid"
+          // border: "1px solid"
         }}
       >
         {clubList.clubs && clubList.clubs.map((event) => {

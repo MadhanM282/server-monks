@@ -58,7 +58,7 @@ export const EventCard = ({ event }) => {
             <Box style={{ marginTop: "10px" }}>
               <Button
                 borderColor="teal"
-                onClick={() => handleDelete(index)}
+                // onClick={}
                 leftIcon={<AddIcon />}
                 colorScheme="teal"
                 variant="solid"
