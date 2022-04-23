@@ -1,6 +1,6 @@
 // import { ChakraProvider, Badge, Box, Image, Button, Img } from "@chakra-ui/react";
 
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 
 // import { AddIcon } from "@chakra-ui/icons";
 export const EventCard = ({ event }) => {
