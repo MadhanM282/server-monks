@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
-export const GeneralChat = () => {
+export const ClubChat = () => {
   return (
     <Box
       sx={{
