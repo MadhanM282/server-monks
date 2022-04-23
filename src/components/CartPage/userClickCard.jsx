@@ -20,7 +20,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import ResponsiveAppBar from "../Navbar/Navbar";
-
+import Chat from "../ClubChat/Chat"
 export const CardDetails = () => {
     const { Club, user } = useSelector((store) => store.Rtc);
     const { firstName } = useSelector((store) => store.auth.user.user);
@@ -51,6 +51,7 @@ export const CardDetails = () => {
 
             </Box>
         </Box>
+        <Chat />
         </>
     )
 
