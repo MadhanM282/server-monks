@@ -111,14 +111,14 @@ const ResponsiveAppBar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 
               <Button
-                key={page}
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 My Clubs
               </Button>
               <Button
-                key={page}
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
