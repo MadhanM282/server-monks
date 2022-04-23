@@ -1,72 +1,112 @@
 import { useState } from 'react';
 import './club.css';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from 'nanoid';
+import { clubListData } from '../../Redux/Home/clubHomeAction';
+
 
 
 export const Club = () => {
-  const [title, changeTitle] = useState("");
-  const [desc, changDesc] = useState('');
-  const [cat, changeCat] = useState('');
+  const { user } = useSelector((store) => store.auth),dispatch=useDispatch();
+  const navigate=useNavigate();
+  // console.log(user);
+  const [clubData, changeData] = useState({
+    club_title: "",
+    image: "",
+    type: "",
+    description: "",
+    creator_id: user
+
+  })
+  console.log(clubData);
+
+
 
   const handleChange = (e) => {
-    console.log(title, desc, cat);
+    // console.log(title, desc, cat);
+    // alert("Data added succesfully");
+    // navigate('/');
+    // console.log(e, e.target.value);
+    const { id, value } = e.target;
+    changeData({...clubData,[id]: value });
+  
 
   }
+  const submitData = (e) => {
+    e.preventDefault();
+    // dispatch(clubListData(clubData,navigate))
+    console.log("The data is",clubData);
+
+  }
+
   const options = [
     {
-      value: 'teacher',
-      label: "Teacher"
+      value: "grouping",
+      label: "Grouping",
+      id: nanoid()
+
+
     },
     {
-      value: 'managment',
-      label: "Managment"
+      value: "dressing",
+      label: "Dressing",
+      id: nanoid()
+
     },
     {
-      value: 'fess',
-      label: 'Fees'
+      value: "inspiration",
+      label: "Inspiration",
+      id: nanoid()
+
     },
     {
-      value: 'holiday',
-      label: 'Holiday'
+      value: "games",
+      label: "Games",
+      id: nanoid()
+
+
     },
     {
       value: 'exam',
-      label: 'Exam'
+      label: 'Exam',
+      id: nanoid()
     },
     {
-      value: 'hostel',
-      label: 'Hostel'
+      value: "study_rooms",
+      label: "Study_rooms",
+      id: nanoid()
     },
     {
-      value: 'sports',
-      label: 'Sports'
-    },
-    {
-      value: 'mess',
-      label: 'Mess'
-    },
+      value: "coding",
+      label: "Coding",
+      id: nanoid()
+    }
   ]
 
   return (
     <>
       <div id='contain'>
-        <label htmlFor="">Title</label><br />
-        <input type="text" placeholder='Enter the title....' value={title}
-          onChange={(e) => changeTitle(e.target.value)} /> <br /> <br />
-        <label htmlFor="">Category</label> <br />
-        <select name="" id="" value="Bhava" onChange={(e) => changeCat(e.target.value)}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
-
-          ))}
-        </select>
-        <br /> <br />
-        <label htmlFor="">Description</label><br />
-        <textarea name="" id="" cols="42" rows="10"
-          onChange={(e) => changDesc(e.target.value)} placeholder='Enter the description...'>
-
-        </textarea><br />
-
-        <button onClick={handleChange}>Create Club</button>
+        <form action="" onSubmit={submitData}>
+          <label htmlFor="">Title</label> <br />
+          <input type="text" placeholder='Enter the title...' id='club_title' required
+            onChange={handleChange} /> <br />
+          <label htmlFor="">Select image</label>
+          <input type="file" placeholder='choose image....' id='image' required
+            accept='image/*' onChange={handleChange} /> <br />
+          <label htmlFor="">Type</label>
+          <select name="" id="type" onChange={handleChange}>
+            {options.map((e) => (
+              <option value={e.value} key={e.id} id='type'>{e.label}</option>
+            ))}
+          </select> <br />
+          <label htmlFor="">Description</label>
+          <textarea name="" id="description" cols="30" rows="10"
+            placeholder='Enter the description...'
+            onChange={handleChange}
+          ></textarea> <br />
+          <button>Create Club</button>
+        </form>
 
       </div>
 
