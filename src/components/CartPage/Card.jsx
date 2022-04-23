@@ -31,7 +31,7 @@ export const CardDetails = () => {
             <Card sx={{ maxWidth: 345, m: "auto", mt: "150px" }}>
                 <CardHeader
                     avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} alt={Club.creator_id.firstName}  aria-label="recipe"/>
+                        <Avatar sx={{ bgcolor: red[500] }}  aria-label="recipe"/>
                             
                         
                         // <Avatar alt="Remy Sharp" src="" />

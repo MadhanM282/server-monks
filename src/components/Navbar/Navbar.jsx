@@ -112,7 +112,7 @@ const ResponsiveAppBar = () => {
 
               <Button
                 
-                onClick={handleCloseNavMenu}
+                onClick={()=>navigate("/myclubs")}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 My Clubs
