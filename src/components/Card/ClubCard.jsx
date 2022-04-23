@@ -32,6 +32,8 @@ const ExpandMore = styled((props) => {
 
 export const ClubCard =({event}) => {
 
+    const { firstName } = useSelector((store) => store.auth.user.user);
+
     const { user } = useSelector((store) => store.auth);
 
     const navigate = useNavigate()
@@ -39,17 +41,12 @@ export const ClubCard =({event}) => {
 
     const dispatch = useDispatch()
 
-
-
-
-    
-
     let date = event.createdAt.split("T")
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, border: 0, boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px" }}>
             <CardHeader
                 avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} alt={user.user.firstName} src={user.user_img} />
+                    <Avatar sx={{ bgcolor: "#ff0077" }} alt={firstName} src={user.user_img} />
                 }
                 action={
                     <IconButton aria-label="settings">
@@ -63,11 +60,13 @@ export const ClubCard =({event}) => {
                 component="img"
                 height="194"
                 image={event.image}
+                //  "https://thumbs.dreamstime.com/b/kids-play-football…king-ball-running-child-team-jersey-120383202.jpg"
+                // {event.image}
                 alt={event.club_title}
             />
             
             <CardActions disableSpacing>
-                <Button onClick={()=>{
+                <Button sx={{ color: "#ff0077" }} onClick={()=>{
                     dispatch(Club(event))
                     navigate(`/clubDetails`)
                 }} >View More</Button>
