@@ -44,7 +44,7 @@ router.get("/:_id", async (req, res) => {
     } catch (err) {
         res.status(520).send(err.message);
     }
-});
+})
 
 router.patch("/:id", async (req, res) => {
     try {
