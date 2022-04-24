@@ -154,7 +154,7 @@ export const Home = () => {
             sx={[
               {
                 border: "1px solid #FF4B2B",
-                bgcolor: "#fb568a",
+                bgcolor: "#fbb956",
                 boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
                 m: 1,
                 color: "#202020",
