@@ -55,7 +55,7 @@ export const getClubData = (page, sort, filter) => (dispatch) => {
     .catch((err) => dispatch(clubError()));
 };
 
-export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
+export const updateClubListData = (data, id, toast) => (dispatch) => {
   dispatch(clubLoding());
 
   axios
@@ -65,9 +65,6 @@ export const updateClubListData = (data, id, toast, navigate) => (dispatch) => {
       toast.success("Suscribed Added!", {
         position: "top-center",
       });
-      setTimeout(() => {
-        navigate("/clubDetails");
-      }, 1000);
     })
     .catch((err) => {
       dispatch(clubError());
