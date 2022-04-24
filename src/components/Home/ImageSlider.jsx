@@ -13,7 +13,7 @@ const Img = styled.img`
   margin: auto;
 
   padding: 30px;
-  height: 550px;
+  height: 400px;
   border-radius: 20px;
   /* border: 1px solid; */
 
