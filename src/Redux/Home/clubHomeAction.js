@@ -31,7 +31,7 @@ export const clubListData = (data, toast, navigate) => (dispatch) => {
         position: "top-center",
       });
       setTimeout(() => {
-        // navigate("/");
+        navigate("/");
       }, 1000);
     })
     .catch((err) => {
