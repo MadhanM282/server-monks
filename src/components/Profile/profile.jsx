@@ -75,7 +75,7 @@ function Profile(props) {
             </div>
           </div>
           <h1 className="bold-text">
-            {name} <span className="normal-text">23</span>
+            {name} <span className="normal-text"></span>
           </h1>
           <h2 className="normal-text">{user.email}</h2>
           <div className="social-container">
