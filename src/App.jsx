@@ -3,14 +3,13 @@ import { SignupSignin } from "./components/SignupSignIn/signin";
 import { Route, Routes } from "react-router";
 import { Club } from "./components/CreateClub/club";
 import ResponsiveAppBar from "./components/Navbar/Navbar";
-import { Profile } from "./components/Profile/Profile";
+import { Profile } from "./components/Profile/profile";
 import { NotFound } from "./components/NotFound";
 import { MainHome } from "./components/Home/MainHome";
 import WebRTC from "./components/WEBRTC/Main";
 import { MYCLUBS } from "./components/My Clubs/myclub";
 import { CardDetails } from "./components/CartPage/userClickCard";
 import { ClubChat } from "./components/ClubChat/ClubChat";
-// import { CardDetails } from "./components/CartPage/userClickCard";
 
 function App() {
   return (
