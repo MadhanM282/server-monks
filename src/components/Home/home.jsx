@@ -114,8 +114,9 @@ export const Home = () => {
           sx={{
             display: "flex",
             justifyContent: "space-around",
-            width: "40%",
+            width: "30%",
             alignItems: "center",
+            border:0,mr:7
           }}
         >
           <Button
