@@ -20,6 +20,8 @@ function Profile(props) {
   const name = localStorage.getItem("user");
   const s = useSelector((store) => store.auth);
   console.log("store", s);
+  const user = JSON.parse(localStorage.getItem("UserData"));
+  console.log("user:", user);
   return (
     <div>
       <ResponsiveAppBar />
@@ -75,19 +77,19 @@ function Profile(props) {
           <h1 className="bold-text">
             {name} <span className="normal-text">23</span>
           </h1>
-          <h2 className="normal-text">Mangod</h2>
+          <h2 className="normal-text">{user.email}</h2>
           <div className="social-container">
             <div className="followers">
-              <h1 className="bold-text">2</h1>
-              <h2 className="smaller-text">Followers</h2>
+              {/* <h1 className="bold-text">2</h1>
+              <h2 className="smaller-text">Followers</h2> */}
             </div>
             <div className="likes">
-              <h1 className="bold-text">2</h1>
-              <h2 className="smaller-text">Likes</h2>
+              <h1 className="bold-text">{user.suscribed_ids.length}</h1>
+              <h2 className="smaller-text">Subscribed Clubs</h2>
             </div>
             <div className="photos">
-              <h1 className="bold-text">2</h1>
-              <h2 className="smaller-text">Photos</h2>
+              {/* <h1 className="bold-text">2</h1>
+              <h2 className="smaller-text">Photos</h2> */}
             </div>
           </div>
         </div>
