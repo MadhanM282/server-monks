@@ -64,7 +64,8 @@ function Profile(props) {
             <div
               style={{
                 height: "30px",
-                width: "100px",
+                width: "130px",
+                padding:"5px",
                 border: "1px dashed black",
               }}
               onClick={() => imageUploader.current.click()}
