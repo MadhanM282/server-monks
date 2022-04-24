@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const pages = ["My Clubs", "Create Club"];
+const pages = ["My Clubs", "Create Club","General Chat"];
 const settings = ["Profile", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -98,11 +98,17 @@ const ResponsiveAppBar = () => {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
+                {/* {pages.map((page) => ( */}
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">My Club</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Create Club</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">General Chat</Typography>
+                </MenuItem>
+                {/* ))} */}
               </Menu>
             </Box>
             <Typography
@@ -111,7 +117,7 @@ const ResponsiveAppBar = () => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
-              LOGO
+              Clubs
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Button
