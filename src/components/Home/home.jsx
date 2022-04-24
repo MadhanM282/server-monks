@@ -150,22 +150,7 @@ export const Home = () => {
           >
             Latest
           </Button>
-          <Button
-            sx={[
-              {
-                border: "1px solid #FF4B2B",
-                bgcolor: "#fb568a",
-                boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
-                m: 1,
-                color: "#202020",
-              },
-              () => ({ "&:hover": { color: "black" } }),
-            ]}
-            onClick={() => navigate("/general-chat")}
-            variant="text"
-          >
-            General Chat
-          </Button>
+          
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <InputLabel
               sx={[
