@@ -52,7 +52,7 @@ export const ClubCard = ({ event }) => {
       }}
     >
       <CardHeader
-        avatar={<Avatar sx={{ bgcolor: "#8a8989" }} src={user.user_img} />}
+        avatar={<Avatar sx={{ bgcolor: "#4d4c4c" }} src={user.user_img} />}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
