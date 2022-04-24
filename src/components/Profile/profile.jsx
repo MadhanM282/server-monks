@@ -30,12 +30,13 @@ function Profile(props) {
       <br />
       <br />
       <div className="main-card">
-        <div className="card-container">
+        <div style={{marginTop:"30px",boxShadow:"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"}} className="card-container">
           <header>
             <img
               style={{
                 margin: "auto",
                 width: "100px",
+                height: "100px",
                 border: "solid white 4px",
                 borderRadius: "50%",
                 marginTop: "75px",
@@ -69,13 +70,14 @@ function Profile(props) {
                 width: "130px",
                 padding:"5px",
                 border: "1px dashed black",
+                backgroundColor: "#cbc5c5a8",
               }}
               onClick={() => imageUploader.current.click()}
             >
               Upload Profile
             </div>
           </div>
-          <h1 className="bold-text">
+          <h1 style={{color:"blue",marginTop:"10px"}}className="bold-text">
             {name} <span className="normal-text"></span>
           </h1>
           <h2 className="normal-text">{user.email}</h2>
