@@ -88,7 +88,7 @@ function Profile(props) {
             </div>
             <div className="likes">
               <h1 className="bold-text">{user.suscribed_ids.length}</h1>
-              <h2 className="smaller-text">Subscribed Clubs</h2>
+              <h4 >Subscribed Clubs</h4>
             </div>
             <div className="photos">
               {/* <h1 className="bold-text">2</h1>
