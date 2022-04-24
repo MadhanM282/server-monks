@@ -20,7 +20,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import ResponsiveAppBar from "../Navbar/Navbar";
-import { updateClubListData } from "../../Redux/Home/clubHomeAction";
+import { clubError, clubLoding, updateClubList, updateClubListData } from "../../Redux/Home/clubHomeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,9 +30,11 @@ import {
   updateUserInfoData,
 } from "../../Redux/suscribe/suscribeAction";
 export const CardDetails = () => {
-  const navigate = useNavigate();
 
   const [UserData, SetUserData] = useState({});
+
+  const [sub,SetSub] = useState(false);
+
   console.log("UserData", UserData);
 
   const { id } = useParams();
@@ -41,7 +43,6 @@ export const CardDetails = () => {
   console.log("Club", Club);
 
   const { user } = useSelector((store) => store.auth);
-  console.log("users", user);
 
   const firstName = Club.creator_id.firstName;
 
@@ -51,26 +52,18 @@ export const CardDetails = () => {
 
   const dispatch = useDispatch();
 
-  const [clubD, setClubD] = useState({});
-  console.log("clubD", clubD);
+  // const [clubD, setClubD] = useState({});
+  // console.log("clubD", clubD);
 
   useEffect(() => {
     SetUserData(JSON.parse(localStorage.getItem("UserData")));
-    setClubD(Club);
+    // setClubD(Club);
   }, []);
 
   const handeSub = () => {
-    setClubD({
-      ...clubD,
-      subcription_user_id: [...clubD.subcription_user_id, userId],
-    });
-    UserData.suscribed_ids.push(Club._id);
-    handleChange();
-  };
-
-  const handleChange = () => {
-    dispatch(updateClubListDataa(clubD, clubId, toast));
-    dispatch(updateUserInfoData());
+    // setClubD({ ...clubD, subcription_user_id: [...clubD.subcription_user_id, userId] });
+    // console.log('Club', Club);
+    SetSub(!sub)
   };
 
   return (
@@ -90,8 +83,8 @@ export const CardDetails = () => {
           p: 4,
           justifyContent: "center",
           gap: "100px",
-          boxShadow:
-            "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          borderRadius: 2
         }}
       >
         <Box sx={{ border: 0, width: "50%", borderRadius: 3 }}>
@@ -109,33 +102,20 @@ export const CardDetails = () => {
           <h1>{Club.club_title}</h1>
           <Typography
             sx={{ height: "auto", mt: 4 }}
-            variant="body2"
+            variant="h6"
             color="text.secondary"
           >
             {Club.description}
           </Typography>
           <Box sx={{ mt: 3 }}>
-            <Button
-              sx={[
-                { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
-                () => ({ "&:hover": { color: "black" } }),
-              ]}
-              onClick={() => {
-                handeSub();
-              }}
-            >
-              Join Club
-            </Button>
-            <a target="_blank" href="https://chat-app-custom.herokuapp.com/">
-              Join Chat
-            </a>
+            <Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}onClick={() => {handeSub();}}>Join Club</Button>
+            <a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>
           </Box>
-
-          <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
-          <Box sx={{ mt: 3 }}>Creator-{firstName}</Box>
+          <Box sx={{ mt: "40px" }}>
+            <Typography variant="h5" >Creator-{firstName}</Typography>
+          </Box>
         </Box>
       </Box>
-      {/* <Chat /> */}
     </>
   );
 };
