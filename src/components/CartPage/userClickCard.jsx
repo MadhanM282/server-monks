@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import SendIcon from "@mui/icons-material/Send";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
@@ -33,10 +32,16 @@ import {
 export const CardDetails = () => {
   const navigate = useNavigate();
 
-  const { Club, user } = useSelector((store) => store.Rtc);
+  const [UserData, SetUserData] = useState({});
+  console.log("UserData", UserData);
+
+  const { id } = useParams();
+
+  const { Club } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
-  // const {user} = useSelector((store) => store.auth)
+  const { user } = useSelector((store) => store.auth);
+  console.log("users", user);
 
   const firstName = Club.creator_id.firstName;
 
@@ -47,13 +52,24 @@ export const CardDetails = () => {
   const dispatch = useDispatch();
 
   const [clubD, setClubD] = useState({});
+  console.log("clubD", clubD);
 
   useEffect(() => {
+    SetUserData(JSON.parse(localStorage.getItem("UserData")));
     setClubD(Club);
   }, []);
 
+  const handeSub = () => {
+    setClubD({
+      ...clubD,
+      subcription_user_id: [...clubD.subcription_user_id, userId],
+    });
+    UserData.suscribed_ids.push(Club._id);
+    handleChange();
+  };
+
   const handleChange = () => {
-    dispatch(updateClubListDataa());
+    dispatch(updateClubListDataa(clubD, clubId, toast));
     dispatch(updateUserInfoData());
   };
 
@@ -104,9 +120,15 @@ export const CardDetails = () => {
                 { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
                 () => ({ "&:hover": { color: "black" } }),
               ]}
+              onClick={() => {
+                handeSub();
+              }}
             >
-              Subscribe
+              Join Club
             </Button>
+            <a target="_blank" href="https://chat-app-custom.herokuapp.com/">
+              Join Chat
+            </a>
           </Box>
 
           <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
@@ -114,14 +136,6 @@ export const CardDetails = () => {
         </Box>
       </Box>
       {/* <Chat /> */}
-      <Button variant="contained" endIcon={<SendIcon />}>
-        <a
-          href="https://chat-app-custom.herokuapp.com"
-          style={{ textDecoration: "none" }}
-        >
-          Chat
-        </a>
-      </Button>
     </>
   );
 };

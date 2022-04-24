@@ -24,7 +24,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/club" element={<Club />} />
         <Route path="/RTC" element={<WebRTC />} />
-        <Route path="/clubDetails" element={<CardDetails />} />
+        <Route path="/clubDetails/:id" element={<CardDetails />} />
         <Route path="/myclubs" element={<MYCLUBS />} />
         <Route path="/club-chat" element={<ClubChat />} />
       </Routes>
