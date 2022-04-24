@@ -52,18 +52,12 @@ export const CardDetails = () => {
 
   const dispatch = useDispatch();
 
-  // const [clubD, setClubD] = useState({});
-  // console.log("clubD", clubD);
-
   useEffect(() => {
     SetUserData(JSON.parse(localStorage.getItem("UserData")));
-    // setClubD(Club);
   }, []);
 
   const handeSub = () => {
-    // setClubD({ ...clubD, subcription_user_id: [...clubD.subcription_user_id, userId] });
-    // console.log('Club', Club);
-    SetSub(!sub)
+    SetSub(true)
   };
 
   return (
@@ -108,14 +102,15 @@ export const CardDetails = () => {
             {Club.description}
           </Typography>
           <Box sx={{ mt: 3 }}>
-            <Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}onClick={() => {handeSub();}}>Join Club</Button>
-            <a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>
+            {!sub?<Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}onClick={() => {handeSub()}}>Join Club</Button>:<Button disabled >join</Button>}
+            {sub ?<a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>:<Button disabled >join</Button>}
           </Box>
           <Box sx={{ mt: "40px" }}>
             <Typography variant="h5" >Creator-{firstName}</Typography>
           </Box>
         </Box>
       </Box>
+      {/* <Chat /> */}
     </>
   );
 };
