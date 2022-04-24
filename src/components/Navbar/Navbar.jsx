@@ -99,13 +99,22 @@ const ResponsiveAppBar = () => {
                 }}
               >
                 {/* {pages.map((page) => ( */}
-                  <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={() => {
+                  handleCloseNavMenu()
+                  navigate("/myclubs")
+                }}>
                     <Typography textAlign="center">My Club</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={() => {
+                  handleCloseNavMenu()
+                  navigate("/club")
+                }}>
                   <Typography textAlign="center">Create Club</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={() => {
+                  handleCloseNavMenu()
+                  navigate("/RTC")
+                }}>
                   <Typography textAlign="center">General Chat</Typography>
                 </MenuItem>
                 {/* ))} */}

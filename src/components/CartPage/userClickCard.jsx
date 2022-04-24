@@ -96,11 +96,12 @@ export const CardDetails = () => {
           <h1 style={{marginTop:"10px"}}>{Club.club_title}</h1>
           <Typography
             sx={{ height: "auto", mt: 4 }}
-            variant="h6"
+            variant="h5"
             color="text.secondary"
           >
             {Club.description}
           </Typography>
+
           <Box sx={{ mt: 3 }}>
             {!sub?<Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}onClick={() => {handeSub()}}>Join Club</Button>:<Button disabled >join</Button>}
             {sub ?<a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>:<Button disabled >join</Button>}
@@ -110,7 +111,7 @@ export const CardDetails = () => {
           </Box>
         </Box>
       </Box>
-      {/* <Chat /> */}
+      
     </>
   );
 };
