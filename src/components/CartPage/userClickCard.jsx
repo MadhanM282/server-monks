@@ -99,7 +99,7 @@ export const CardDetails = () => {
             boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px",
           }}
         >
-          <h1>{Club.club_title}</h1>
+          <h1 style={{marginTop:"10px"}}>{Club.club_title}</h1>
           <Typography
             sx={{ height: "auto", mt: 4 }}
             variant="h6"
@@ -112,7 +112,7 @@ export const CardDetails = () => {
             <a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>
           </Box>
           <Box sx={{ mt: "40px" }}>
-            <Typography variant="h5" >Creator-{firstName}</Typography>
+            <Typography variant="h6" >Creator-{firstName}</Typography>
           </Box>
         </Box>
       </Box>
