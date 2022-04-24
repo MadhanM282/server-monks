@@ -7,7 +7,7 @@ export const MainHome = () => {
   return (
     <Box>
       <ResponsiveAppBar />
-      <ImageSlider/>
+      <ImageSlider />
       <Home />
     </Box>
   );
