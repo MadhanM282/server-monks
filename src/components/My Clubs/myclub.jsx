@@ -19,6 +19,7 @@ import ResponsiveAppBar from "../Navbar/Navbar";
 export const MYCLUBS = () => {
   const { user } = useSelector((store) => store.auth);
   const [data, SetData] = useState([]);
+  console.log('data', data);
   console.log("user", user);
   const dispatch = useDispatch();
 
@@ -47,7 +48,7 @@ export const MYCLUBS = () => {
           >
             {data.map((ele) => {
               return (
-                <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px" }}>
+                <Card sx={{ maxWidth: "345px", m: "auto", mt: "150px",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",borderRadius:3   }}>
                   <CardHeader
                     avatar={
                       <Avatar aria-label="recipe" />
@@ -77,8 +78,6 @@ export const MYCLUBS = () => {
                     disableSpacing
                     sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <Button>Subscribe</Button>
-                    <Box>Members-{ele.subcription_user_id.length}</Box>
                   </CardActions>
                 </Card>
               );
