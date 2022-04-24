@@ -25,21 +25,23 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Chat from "../ClubChat/Chat";
-import { updateClubListDataa, updateUserInfoData } from "../../Redux/suscribe/suscribeAction";
+import {
+  updateClubListDataa,
+  updateUserInfoData,
+} from "../../Redux/suscribe/suscribeAction";
 export const CardDetails = () => {
   const navigate = useNavigate();
 
-  const [UserData,SetUserData] = useState({});
-  console.log('UserData', UserData);
+  const [UserData, SetUserData] = useState({});
+  console.log("UserData", UserData);
 
-  const {id} = useParams()
+  const { id } = useParams();
 
   const { Club } = useSelector((store) => store.Rtc);
   console.log("Club", Club);
 
-
-  const {user} = useSelector((store) => store.auth)
-  console.log('users', user);
+  const { user } = useSelector((store) => store.auth);
+  console.log("users", user);
 
   const firstName = Club.creator_id.firstName;
 
@@ -50,23 +52,26 @@ export const CardDetails = () => {
   const dispatch = useDispatch();
 
   const [clubD, setClubD] = useState({});
-  console.log('clubD', clubD);
+  console.log("clubD", clubD);
 
   useEffect(() => {
-    SetUserData(JSON.parse(localStorage.getItem('UserData')))
+    SetUserData(JSON.parse(localStorage.getItem("UserData")));
     setClubD(Club);
   }, []);
 
-  const handeSub = ()=>{
-    setClubD({...clubD,subcription_user_id:[...clubD.subcription_user_id,userId]})
-    UserData.suscribed_ids.push(Club._id)
-    handleChange()
-  }
+  const handeSub = () => {
+    setClubD({
+      ...clubD,
+      subcription_user_id: [...clubD.subcription_user_id, userId],
+    });
+    UserData.suscribed_ids.push(Club._id);
+    handleChange();
+  };
 
   const handleChange = () => {
-    dispatch(updateClubListDataa(clubD,clubId, toast));
+    dispatch(updateClubListDataa(clubD, clubId, toast));
     dispatch(updateUserInfoData());
-  }
+  };
 
   return (
     <>
@@ -115,8 +120,8 @@ export const CardDetails = () => {
                 { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
                 () => ({ "&:hover": { color: "black" } }),
               ]}
-              onClick={()=>{
-                handeSub()
+              onClick={() => {
+                handeSub();
               }}
             >
               Subscribe
