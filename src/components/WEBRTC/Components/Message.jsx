@@ -7,6 +7,7 @@ const Message = ({
   displayName = "",
   photoURL = "",
 }) => {
+  console.log(photoURL);
   return (
     <div>
       <div

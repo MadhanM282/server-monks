@@ -20,73 +20,77 @@ import { Navigate, useNavigate } from "react-router";
 import { ClubAction } from "../../Redux/Rtc/actions";
 
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-    }),
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
+    duration: theme.transitions.duration.shortest,
+  }),
 }));
 
+const storing = (event) => {
+  //clubDetails/:id
+  localStorage.setItem("mainId", event);
+};
 export const ClubCard = ({ event }) => {
-    const { user } = useSelector((store) => store.auth);
+  const { user } = useSelector((store) => store.auth);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  let z = event;
+  let date = event.createdAt.split("T");
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        border: 0,
+        borderRadius: "10px",
+        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+      }}
+    >
+      <CardHeader
+        avatar={<Avatar sx={{ bgcolor: "#8a8989" }} src={user.user_img} />}
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={event.club_title}
+        subheader={date[0]}
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image={event.image}
+        //  "https://thumbs.dreamstime.com/b/kids-play-football…king-ball-running-child-team-jersey-120383202.jpg"
+        // {event.image}
+        alt={event.club_title}
+      />
 
-    let date = event.createdAt.split("T");
-    return (
-        <Card
-            sx={{
-                maxWidth: 345,
-                border: 0,
-                borderRadius:"10px",
-                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
-            }}
+      <CardActions disableSpacing>
+        <Button
+          sx={[
+            {
+              boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
+              m: 1,
+              color: "#ffffff",
+              bgcolor: "#222222",
+            },
+            () => ({ "&:hover": { color: "#fafafa", bgcolor: "#474747" } }),
+          ]}
+          //   sx={{ color: "#ff0077" }}
+          onClick={() => {
+            dispatch(ClubAction(event));
+            storing(z);
+            navigate(`/clubDetails/${event._id}`);
+          }}
         >
-            <CardHeader
-                avatar={<Avatar sx={{ bgcolor: "#8a8989" }} src={user.user_img} />}
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title={event.club_title}
-                subheader={date[0]}
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                image={event.image}
-                //  "https://thumbs.dreamstime.com/b/kids-play-football…king-ball-running-child-team-jersey-120383202.jpg"
-                // {event.image}
-                alt={event.club_title}
-            />
-
-            <CardActions disableSpacing>
-                <Button
-                    sx={[
-                        {
-                            boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
-                            m: 1,
-                            color: "#ffffff",
-                            bgcolor: "#222222",
-                        },
-                        () => ({ "&:hover": { color: "#fafafa", bgcolor: "#474747" } }),
-                    ]}
-                    //   sx={{ color: "#ff0077" }}
-                    onClick={() => {
-                        dispatch(ClubAction(event));
-                            //clubDetails/:id
-                        navigate(`/clubDetails/${event._id}`);
-                    }}
-                >
-                    View More
-                </Button>
-            </CardActions>
-        </Card>
-    );
+          View More
+        </Button>
+      </CardActions>
+    </Card>
+  );
 };

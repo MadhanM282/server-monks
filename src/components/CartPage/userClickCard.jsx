@@ -124,8 +124,11 @@ export const CardDetails = () => {
                 handeSub();
               }}
             >
-              Subscribe
+              Join Club
             </Button>
+            <a target="_blank" href="https://chat-app-custom.herokuapp.com/">
+              Join Chat
+            </a>
           </Box>
 
           <Box sx={{ mt: 3 }}>Members-{Club.subcription_user_id.length}</Box>
