@@ -99,7 +99,7 @@ export const Club = () => {
   ];
 
   return (
-    <>
+    <Box>
       <ResponsiveAppBar />
       <Box
         sx={{
@@ -201,6 +201,7 @@ export const Club = () => {
           </Button>
         </Box>
       </Box>
-    </>
+      <ToastContainer />
+    </Box>
   );
 };
