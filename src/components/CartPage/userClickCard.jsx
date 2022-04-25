@@ -25,10 +25,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Chat from "../ClubChat/Chat";
-import {
-  updateClubListDataa,
-  updateUserInfoData,
-} from "../../Redux/suscribe/suscribeAction";
+
 export const CardDetails = () => {
 
   const [UserData, SetUserData] = useState({});

@@ -26,7 +26,7 @@ export const clubListData = (data, toast, navigate) => (dispatch) => {
   axios
     .post("https://server-monks-backend.herokuapp.com/clubs", data)
     .then(({ data }) => {
-      dispatch(clubList(data));
+      dispatch(getClubList(data));
       toast.success("club Added!", {
         position: "top-center",
       });
@@ -61,7 +61,7 @@ export const updateClubListData = (data, id, toast) => (dispatch) => {
   axios
     .patch(`https://server-monks-backend.herokuapp.com/clubs/${id}`, data)
     .then(({ data }) => {
-      dispatch(updateClubList(data));
+      dispatch(getClubList(data));
       toast.success("Suscribed Added!", {
         position: "top-center",
       });

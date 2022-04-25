@@ -22,6 +22,9 @@ export const Home = () => {
   const dispatch = useDispatch();
 
   const { clubList, loding, error } = useSelector((store) => store.club);
+  const stored = useSelector((store) => store.club);
+  console.log('stored', stored);
+
 
   const checking = useSelector((store) => store.club);
   console.log("checking", checking);
@@ -82,9 +85,9 @@ export const Home = () => {
     }
   };
 
-  // return loding ? <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" /> : error ? <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" alt="Oops something went wrong" /> : (
+  return loding ? <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" /> : error ? <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" alt="Oops something went wrong" /> : (
 
-  return (
+  // return (
     <Box sx={{ mt: 15 }}>
       <Box
         sx={{

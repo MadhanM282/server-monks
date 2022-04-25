@@ -7,29 +7,24 @@ import {
 } from "./clubHomeAction";
 
 const initialState = {
-  list: [],
+
   clubList: [],
   loding: false,
-  error: false,
-  updateList: [],
+  error: false
+
 };
 
 export const clubHomeReducer = (store = initialState, { type, payload }) => {
   switch (type) {
-    case CLUB_LIST:
-      return { ...store, list: payload, loding: false, error: false };
 
     case CLUB_LODING:
       return { ...store, loding: true };
 
     case CLUB_ERROR:
-      return { ...store, loading: false, error: true };
+      return { ...store, loding: false, error: true };
 
     case GET_CLUB:
-      return { ...store, loading: false, error: false, clubList: payload };
-
-    case UPDATE_CLUB:
-      return { ...store, loading: false, error: false, updateList: payload };
+      return { ...store, loding: false, error: false, clubList: payload };
 
     default:
       return store;
