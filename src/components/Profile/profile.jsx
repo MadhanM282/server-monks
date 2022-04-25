@@ -30,7 +30,14 @@ function Profile(props) {
       <br />
       <br />
       <div className="main-card">
-        <div style={{marginTop:"30px",boxShadow:"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"}} className="card-container">
+        <div
+          style={{
+            marginTop: "30px",
+            boxShadow:
+              "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+          }}
+          className="card-container"
+        >
           <header>
             <img
               style={{
@@ -68,7 +75,7 @@ function Profile(props) {
               style={{
                 height: "30px",
                 width: "130px",
-                padding:"5px",
+                padding: "5px",
                 border: "1px dashed black",
                 backgroundColor: "#cbc5c5a8",
               }}
@@ -77,7 +84,10 @@ function Profile(props) {
               Upload Profile
             </div>
           </div>
-          <h1 style={{color:"blue",marginTop:"10px"}}className="bold-text">
+          <h1
+            style={{ color: "blue", marginTop: "10px" }}
+            className="bold-text"
+          >
             {name} <span className="normal-text"></span>
           </h1>
           <h2 className="normal-text">{user.email}</h2>
@@ -88,8 +98,13 @@ function Profile(props) {
             </div>
             {/* <div className="likes">
               <h1 className="bold-text">{user.suscribed_ids.length}</h1>
+<<<<<<< HEAD
               <h4 >Subscribed</h4>
             </div> */}
+=======
+              <h4>Subscribed Clubs</h4>
+            </div>
+>>>>>>> 9e36c5cbba4fceff044263b9a8d7029038d8a177
             <div className="photos">
             </div>
           </div>

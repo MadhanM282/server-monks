@@ -20,7 +20,12 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import ResponsiveAppBar from "../Navbar/Navbar";
-import { clubError, clubLoding, updateClubList, updateClubListData } from "../../Redux/Home/clubHomeAction";
+import {
+  clubError,
+  clubLoding,
+  updateClubList,
+  updateClubListData,
+} from "../../Redux/Home/clubHomeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,10 +35,9 @@ import {
   updateUserInfoData,
 } from "../../Redux/suscribe/suscribeAction";
 export const CardDetails = () => {
-
   const [UserData, SetUserData] = useState({});
 
-  const [sub,SetSub] = useState(false);
+  const [sub, SetSub] = useState(false);
 
   console.log("UserData", UserData);
 
@@ -57,7 +61,7 @@ export const CardDetails = () => {
   }, []);
 
   const handeSub = () => {
-    SetSub(true)
+    SetSub(true);
   };
 
   return (
@@ -78,7 +82,7 @@ export const CardDetails = () => {
           justifyContent: "center",
           gap: "100px",
           boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-          borderRadius: 2
+          borderRadius: 2,
         }}
       >
         <Box sx={{ border: 0, width: "50%", borderRadius: 3 }}>
@@ -93,7 +97,7 @@ export const CardDetails = () => {
             boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px",
           }}
         >
-          <h1 style={{marginTop:"10px"}}>{Club.club_title}</h1>
+          <h1 style={{ marginTop: "10px" }}>{Club.club_title}</h1>
           <Typography
             sx={{ height: "auto", mt: 4 }}
             variant="h5"
@@ -103,15 +107,41 @@ export const CardDetails = () => {
           </Typography>
 
           <Box sx={{ mt: 3 }}>
-            {!sub?<Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}onClick={() => {handeSub()}}>Join Club</Button>:<Button disabled >join</Button>}
-            {sub ?<a target="_blank" href="https://chat-app-custom.herokuapp.com/"><Button sx={[{ bgcolor: "#000000", m: 1, color: "#f2f2ff" },() => ({ "&:hover": { color: "black" } }),]}>Join Chat</Button></a>:<Button disabled >join</Button>}
+            {!sub ? (
+              <Button
+                sx={[
+                  { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
+                  () => ({ "&:hover": { color: "black" } }),
+                ]}
+                onClick={() => {
+                  handeSub();
+                }}
+              >
+                Join Club
+              </Button>
+            ) : (
+              <Button disabled>join</Button>
+            )}
+            {sub ? (
+              <a target="_blank" href="https://chat-app-custom.herokuapp.com/">
+                <Button
+                  sx={[
+                    { bgcolor: "#000000", m: 1, color: "#f2f2ff" },
+                    () => ({ "&:hover": { color: "black" } }),
+                  ]}
+                >
+                  Join Chat
+                </Button>
+              </a>
+            ) : (
+              <Button disabled>join</Button>
+            )}
           </Box>
           <Box sx={{ mt: "40px" }}>
-            <Typography variant="h5" >Creator-{firstName}</Typography>
+            <Typography variant="h5">Creator-{firstName}</Typography>
           </Box>
         </Box>
       </Box>
-      
     </>
   );
 };
