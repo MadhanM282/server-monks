@@ -119,7 +119,8 @@ export const Home = () => {
             justifyContent: "space-around",
             width: "30%",
             alignItems: "center",
-            border:0,mr:7
+            border: 0,
+            mr: 7,
           }}
         >
           <Button
@@ -154,7 +155,7 @@ export const Home = () => {
           >
             Latest
           </Button>
-          
+
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <InputLabel
               sx={[
