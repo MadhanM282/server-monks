@@ -1,7 +1,7 @@
 import {
   GET_CLUB,
   CLUB_ERROR,
-  CLUB_LIST,
+  SINGLE_CLUB_LIST,
   CLUB_LODING,
   UPDATE_CLUB,
 } from "./clubHomeAction";
@@ -10,8 +10,8 @@ const initialState = {
 
   clubList: [],
   loding: false,
-  error: false
-
+  error: false,
+  singleClub: {}
 };
 
 export const clubHomeReducer = (store = initialState, { type, payload }) => {
@@ -25,6 +25,8 @@ export const clubHomeReducer = (store = initialState, { type, payload }) => {
 
     case GET_CLUB:
       return { ...store, loding: false, error: false, clubList: payload };
+    case SINGLE_CLUB_LIST:
+      return { ...store, loding: false, error: false, singleClub: payload };
 
     default:
       return store;

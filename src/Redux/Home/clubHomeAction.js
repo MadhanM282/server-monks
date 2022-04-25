@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const CLUB_LIST = "CLUB_LIST";
+export const SINGLE_CLUB_LIST = "SINGLE_CLUB_LIST";
 
 export const GET_CLUB = "GET_CLUB";
 
@@ -14,7 +14,7 @@ export const clubLoding = () => ({ type: CLUB_LODING });
 
 export const clubError = () => ({ type: CLUB_ERROR });
 
-export const clubList = (payload) => ({ type: CLUB_LIST, payload });
+export const clubList = (payload) => ({ type: SINGLE_CLUB_LIST, payload });
 
 export const getClubList = (payload) => ({ type: GET_CLUB, payload });
 
@@ -55,6 +55,18 @@ export const getClubData = (page, sort, filter) => (dispatch) => {
     .catch((err) => dispatch(clubError()));
 };
 
+export const GetClubSingle = (id) => (dispatch) => {
+  dispatch(clubLoding());
+
+  axios
+    .get(`https://server-monks-backend.herokuapp.com/single/${id}`)
+    .then(({ data }) => {
+      dispatch(clubList(data));
+      
+    }).catch((err) => dispatch(clubError()));
+};
+
+
 export const updateClubListData = (data, id, toast) => (dispatch) => {
   dispatch(clubLoding());
 
@@ -62,6 +74,7 @@ export const updateClubListData = (data, id, toast) => (dispatch) => {
     .patch(`https://server-monks-backend.herokuapp.com/clubs/${id}`, data)
     .then(({ data }) => {
       dispatch(getClubList(data));
+      console.log('dataclubbbb', data);
       toast.success("Suscribed Added!", {
         position: "top-center",
       });
