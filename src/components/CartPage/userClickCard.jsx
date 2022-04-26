@@ -21,28 +21,8 @@ import { updateUserInfoData } from "../../Redux/auth/authAction"
 export const CardDetails = () => {
   const [UserData, SetUserData] = useState({});
 
-<<<<<<< HEAD
-  const [sub, SetSub] = useState(false);
-
-  // console.log("UserData", UserData);
-
   const { id } = useParams();
 
-  const { Club } = useSelector((store) => store.Rtc);
-  // console.log("Club", Club);
-
-  const { user } = useSelector((store) => store.auth);
-
-  const firstName = Club.creator_id.firstName;
-
-  const userId = localStorage.getItem("id");
-
-  const clubId = Club._id;
-
-=======
-  const { id } = useParams();
-
->>>>>>> 45a296dd4a2bbdfd09ff3c5ed7fa0fef5d9fd1e0
   const dispatch = useDispatch();
 
   const [sub, SetSub] = useState(false);
@@ -63,7 +43,7 @@ export const CardDetails = () => {
 
 
   const handleSuscribe = () => {
-    dispatch(updateUserInfoData({ ...user, suscribed_ids: [...user.suscribed_ids, id] }, user._id, toast));
+    dispatch(updateUserInfoData({ ...user, suscribed_ids: [...user.suscribed_ids, id] }, user._id));
     dispatch(updateClubListData({ ...singleClub, subcription_user_id: [...singleClub.subcription_user_id, user._id] }, id, toast));
   }
 
@@ -146,9 +126,9 @@ export const CardDetails = () => {
               <Button disabled>join</Button>
             )}
           </Box>
-          {/* <Box sx={{ mt: "40px" }}>
-            <Typography variant="h5">Creator-{singleClub.creator_id.firstName}</Typography>
-          </Box> */}
+          <Box sx={{ mt: "40px" }}>
+            {/* <Typography variant="h5">Creator-{singleClub.creator_id.firstName}</Typography> */}
+          </Box>
         </Box>
       </Box>
       <ToastContainer />

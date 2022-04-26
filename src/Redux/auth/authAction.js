@@ -52,7 +52,7 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
     });
 };
 
-export const updateUserInfoData = (data, id, toast) => (dispatch) => {
+export const updateUserInfoData = (data, id) => (dispatch) => {
   dispatch(loginLoding());
  
   axios

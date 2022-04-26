@@ -74,7 +74,7 @@ export const updateClubListData = (data, id, toast) => (dispatch) => {
     .patch(`https://server-monks-backend.herokuapp.com/clubs/${id}`, data)
     .then(({ data }) => {
       dispatch(getClubList(data));
-      console.log('dataclubbbb', data);
+      // console.log('dataclubbbb', data);
       toast.success("Suscribed Added!", {
         position: "top-center",
       });
