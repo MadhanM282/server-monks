@@ -51,3 +51,23 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       });
     });
 };
+
+export const updateUserInfoData = (data, id, toast) => (dispatch) => {
+  dispatch(loginLoding());
+ 
+  axios
+    .patch(`https://server-monks-backend.herokuapp.com/users/${id}`, data)
+    .then(({ data }) => {
+      dispatch(loginSuccess(data));
+      // console.log('datattttt', data);
+      // toast.success("Suscribed Added!", {
+      //   position: "top-center",
+      // });
+    })
+    .catch((err) => {
+      dispatch(loginError());
+      // toast.error("Try again!", {
+      //   position: "top-center",
+      // });
+    });
+};

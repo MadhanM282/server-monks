@@ -84,6 +84,7 @@ export const ClubCard = ({ event }) => {
           //   sx={{ color: "#ff0077" }}
           onClick={() => {
             dispatch(ClubAction(event));
+            
             storing(z);
             navigate(`/clubDetails/${event._id}`);
           }}
