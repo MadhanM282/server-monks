@@ -29,7 +29,7 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       localStorage.setItem("user", data.user.firstName);
       let DATA = data.user;
       dispatch(loginSuccess(data));
-      console.log("logindata", data);
+      // console.log("logindata", data);
 
       localStorage.setItem("auth", true);
       localStorage.setItem("id", data.user._id);
@@ -40,11 +40,11 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
-      console.log("DATA", DATA);
+      // console.log("DATA", DATA);
       localStorage.setItem("UserData", JSON.stringify(DATA));
     })
     .catch((err) => {
-      console.log("err", err.massage);
+      // console.log("err", err.massage);
       dispatch(loginError());
       toast.error("Please check your email or password", {
         position: "top-center",

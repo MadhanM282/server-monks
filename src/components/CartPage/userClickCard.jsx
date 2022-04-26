@@ -39,12 +39,12 @@ export const CardDetails = () => {
 
   const [sub, SetSub] = useState(false);
 
-  console.log("UserData", UserData);
+  // console.log("UserData", UserData);
 
   const { id } = useParams();
 
   const { Club } = useSelector((store) => store.Rtc);
-  console.log("Club", Club);
+  // console.log("Club", Club);
 
   const { user } = useSelector((store) => store.auth);
 

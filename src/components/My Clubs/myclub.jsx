@@ -19,8 +19,8 @@ import ResponsiveAppBar from "../Navbar/Navbar";
 export const MYCLUBS = () => {
   const { user } = useSelector((store) => store.auth);
   const [data, SetData] = useState([]);
-  console.log("data", data);
-  console.log("user", user);
+  // console.log("data", data);
+  // console.log("user", user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const MYCLUBS = () => {
     axios
       .get(`https://server-monks-backend.herokuapp.com/clubs/${id}`)
       .then(({ data }) => {
-        console.log("data", data);
+        // console.log("data", data);
         SetData(data);
       });
   }, []);

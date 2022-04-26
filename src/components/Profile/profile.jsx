@@ -19,9 +19,9 @@ function Profile(props) {
   };
   const name = localStorage.getItem("user");
   const s = useSelector((store) => store.auth);
-  console.log("store", s);
+  // console.log("store", s);
   const user = JSON.parse(localStorage.getItem("UserData"));
-  console.log("user:", user);
+  // console.log("user:", user);
   return (
     <div>
       <ResponsiveAppBar />

@@ -45,7 +45,7 @@ export const SignupSignin = () => {
   };
 
   const Login = () => {
-    console.log("Signin", Signin);
+    // console.log("Signin", Signin);
     dispatch(UserData(Signin));
     dispatch(loginSuccessData(Signin, toast, navigate));
   };

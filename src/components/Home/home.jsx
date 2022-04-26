@@ -24,7 +24,7 @@ export const Home = () => {
   const { clubList, loding, error } = useSelector((store) => store.club);
 
   const checking = useSelector((store) => store.club);
-  console.log("checking", checking);
+  // console.log("checking", checking);
 
   const { isAuthenticated } = useSelector((store) => store.auth);
 
@@ -46,12 +46,12 @@ export const Home = () => {
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
-  console.log("size", size);
+  // console.log("size", size);
 
   // const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
-  console.log("page", page);
+  // console.log("page", page);
 
   const [sort, setSort] = useState("asc");
 

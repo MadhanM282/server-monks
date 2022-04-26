@@ -24,7 +24,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 function WebRTC() {
   const { id } = useParams();
-  console.log("id", id);
+  // console.log("id", id);
   const [user, setUser] = useState(() => auth.currentUser);
   const [initializing, setInitializing] = useState(true);
   useEffect(() => {

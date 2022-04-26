@@ -50,7 +50,7 @@ export const getClubData = (page, sort, filter) => (dispatch) => {
     )
     .then(({ data }) => {
       dispatch(getClubList(data));
-      console.log("data", data);
+      // console.log("data", data);
     })
     .catch((err) => dispatch(clubError()));
 };
