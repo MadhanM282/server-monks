@@ -40,7 +40,7 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "https://grubhub-clone-project.vercel.app/home",
+    successRedirect: "https://server-monks.vercel.app/",
     failureRedirect: "/auth/google/failure",
   })
 );
