@@ -100,8 +100,7 @@ function Profile(props) {
               <h1 className="bold-text">{user.suscribed_ids.length}</h1>
               <h4 >Subscribed</h4>
             </div> */}
-            <div className="photos">
-            </div>
+            <div className="photos"></div>
           </div>
         </div>
       </div>
