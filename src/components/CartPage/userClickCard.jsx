@@ -11,12 +11,11 @@ import {
   clubLoding,
   updateClubList,
   updateClubListData,
-  GetClubSingle
+  GetClubSingle,
 } from "../../Redux/Home/clubHomeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { updateUserInfoData } from "../../Redux/auth/authAction"
-
+import { updateUserInfoData } from "../../Redux/auth/authAction";
 
 export const CardDetails = () => {
   const [UserData, SetUserData] = useState({});
@@ -28,25 +27,34 @@ export const CardDetails = () => {
   const [sub, SetSub] = useState(false);
 
   const { user } = useSelector((store) => store.auth);
-  console.log('userr', user);
+  console.log("userr", user);
 
   const { singleClub } = useSelector((store) => store.club);
-  console.log('singleClub', singleClub);
-
+  console.log("singleClub", singleClub);
 
   useEffect(() => {
-
     SetUserData(JSON.parse(localStorage.getItem("UserData")));
     dispatch(GetClubSingle(id));
-
   }, []);
 
-
   const handleSuscribe = () => {
-    dispatch(updateUserInfoData({ ...user, suscribed_ids: [...user.suscribed_ids, id] }, user._id));
-    dispatch(updateClubListData({ ...singleClub, subcription_user_id: [...singleClub.subcription_user_id, user._id] }, id, toast));
-  }
-
+    dispatch(
+      updateUserInfoData(
+        { ...user, suscribed_ids: [...user.suscribed_ids, id] },
+        user._id
+      )
+    );
+    dispatch(
+      updateClubListData(
+        {
+          ...singleClub,
+          subcription_user_id: [...singleClub.subcription_user_id, user._id],
+        },
+        id,
+        toast
+      )
+    );
+  };
 
   const handeSub = () => {
     SetSub(true);
@@ -74,7 +82,10 @@ export const CardDetails = () => {
         }}
       >
         <Box sx={{ border: 0, width: "50%", borderRadius: 3 }}>
-          <img style={{ width: "100%", borderRadius: 9 }} src={singleClub.image} />
+          <img
+            style={{ width: "100%", borderRadius: 9 }}
+            src={singleClub.image}
+          />
         </Box>
         <Box
           sx={{
