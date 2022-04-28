@@ -62,10 +62,9 @@ export const GetClubSingle = (id) => (dispatch) => {
     .get(`https://server-monks-backend.herokuapp.com/single/${id}`)
     .then(({ data }) => {
       dispatch(clubList(data));
-      
-    }).catch((err) => dispatch(clubError()));
+    })
+    .catch((err) => dispatch(clubError()));
 };
-
 
 export const updateClubListData = (data, id, toast) => (dispatch) => {
   dispatch(clubLoding());

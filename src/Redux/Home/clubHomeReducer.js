@@ -7,16 +7,14 @@ import {
 } from "./clubHomeAction";
 
 const initialState = {
-
   clubList: [],
   loding: false,
   error: false,
-  singleClub: {}
+  singleClub: {},
 };
 
 export const clubHomeReducer = (store = initialState, { type, payload }) => {
   switch (type) {
-
     case CLUB_LODING:
       return { ...store, loding: true };
 
