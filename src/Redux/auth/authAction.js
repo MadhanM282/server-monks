@@ -54,7 +54,7 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
 
 export const updateUserInfoData = (data, id) => (dispatch) => {
   dispatch(loginLoding());
- 
+
   axios
     .patch(`https://server-monks-backend.herokuapp.com/users/${id}`, data)
     .then(({ data }) => {
