@@ -50,7 +50,7 @@ export const getClubData = (page, sort, filter) => (dispatch) => {
     )
     .then(({ data }) => {
       dispatch(getClubList(data));
-      console.log("data", data);
+      // console.log("data", data);
     })
     .catch((err) => dispatch(clubError()));
 };
@@ -62,10 +62,9 @@ export const GetClubSingle = (id) => (dispatch) => {
     .get(`https://server-monks-backend.herokuapp.com/single/${id}`)
     .then(({ data }) => {
       dispatch(clubList(data));
-      
-    }).catch((err) => dispatch(clubError()));
+    })
+    .catch((err) => dispatch(clubError()));
 };
-
 
 export const updateClubListData = (data, id, toast) => (dispatch) => {
   dispatch(clubLoding());
@@ -74,7 +73,7 @@ export const updateClubListData = (data, id, toast) => (dispatch) => {
     .patch(`https://server-monks-backend.herokuapp.com/clubs/${id}`, data)
     .then(({ data }) => {
       dispatch(getClubList(data));
-      console.log('dataclubbbb', data);
+      // console.log('dataclubbbb', data);
       toast.success("Suscribed Added!", {
         position: "top-center",
       });

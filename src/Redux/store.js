@@ -21,7 +21,6 @@ const rootReducer = combineReducers({
   register: registerReducer,
   club: clubHomeReducer,
   Rtc: RwtReducer,
-  
 });
 
 export const store = createStore(

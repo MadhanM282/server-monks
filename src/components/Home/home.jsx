@@ -23,11 +23,10 @@ export const Home = () => {
 
   const { clubList, loding, error } = useSelector((store) => store.club);
   const stored = useSelector((store) => store.club);
-  console.log('stored', stored);
-
+  console.log("stored", stored);
 
   const checking = useSelector((store) => store.club);
-  console.log("checking", checking);
+  // console.log("checking", checking);
 
   const { isAuthenticated } = useSelector((store) => store.auth);
 
@@ -49,12 +48,12 @@ export const Home = () => {
   // console.log('clubListxdcfvghbjn', clubList.clubs.length);
 
   const size = clubList.totalPages;
-  console.log("size", size);
+  // console.log("size", size);
 
   // const types = clubList.clubs;
 
   const [page, setPage] = useState(1);
-  console.log("page", page);
+  // console.log("page", page);
 
   const [sort, setSort] = useState("asc");
 
@@ -85,9 +84,15 @@ export const Home = () => {
     }
   };
 
-  return loding ? <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" /> : error ? <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" alt="Oops something went wrong" /> : (
-
-  // return (
+  return loding ? (
+    <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+  ) : error ? (
+    <img
+      src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+      alt="Oops something went wrong"
+    />
+  ) : (
+    // return (
     <Box sx={{ mt: 15 }}>
       <Box
         sx={{

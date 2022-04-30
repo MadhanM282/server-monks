@@ -22,9 +22,9 @@ import ResponsiveAppBar from "../Navbar/Navbar";
 export const Club = () => {
   const { user } = useSelector((store) => store.auth),
     dispatch = useDispatch();
-  console.log("user", user);
+  // console.log("user", user);
   const navigate = useNavigate();
-  // console.log(user);
+  console.log(user);
   const id = localStorage.getItem("id");
   const [clubData, changeData] = useState({
     club_title: "",
@@ -36,18 +36,18 @@ export const Club = () => {
 
   const [filter, setFilter] = useState("");
 
-  console.log(clubData);
+  // console.log(clubData);
 
   const handleChange = (e) => {
-    console.log(e, e.target.value);
+    // console.log(e, e.target.value);
     const { id, value } = e.target;
-    console.log("id", id);
+    // console.log("id", id);
     changeData({ ...clubData, [id]: value });
   };
   const submitData = (e) => {
     e.preventDefault();
     dispatch(clubListData(clubData, toast, navigate));
-    console.log("The data is", clubData);
+    // console.log("The data is", clubData);
   };
   const options = [
     {

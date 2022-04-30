@@ -29,7 +29,7 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       localStorage.setItem("user", data.user.firstName);
       let DATA = data.user;
       dispatch(loginSuccess(data));
-      console.log("logindata", data);
+      // console.log("logindata", data);
 
       localStorage.setItem("auth", true);
       localStorage.setItem("id", data.user._id);
@@ -40,11 +40,11 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
-      console.log("DATA", DATA);
+      // console.log("DATA", DATA);
       localStorage.setItem("UserData", JSON.stringify(DATA));
     })
     .catch((err) => {
-      console.log("err", err.massage);
+      // console.log("err", err.massage);
       dispatch(loginError());
       toast.error("Please check your email or password", {
         position: "top-center",
@@ -52,22 +52,22 @@ export const loginSuccessData = (data, toast, navigate) => (dispatch) => {
     });
 };
 
-export const updateUserInfoData = (data, id, toast) => (dispatch) => {
+export const updateUserInfoData = (data, id) => (dispatch) => {
   dispatch(loginLoding());
- 
+
   axios
     .patch(`https://server-monks-backend.herokuapp.com/users/${id}`, data)
     .then(({ data }) => {
       dispatch(loginSuccess(data));
-      console.log('datattttt', data);
-      toast.success("Suscribed Added!", {
-        position: "top-center",
-      });
+      // console.log('datattttt', data);
+      // toast.success("Suscribed Added!", {
+      //   position: "top-center",
+      // });
     })
     .catch((err) => {
       dispatch(loginError());
-      toast.error("Try again!", {
-        position: "top-center",
-      });
+      // toast.error("Try again!", {
+      //   position: "top-center",
+      // });
     });
 };
