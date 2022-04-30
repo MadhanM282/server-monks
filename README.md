@@ -7,3 +7,15 @@ This is a club management system where people can interact and chat with each ot
 # Server-Monks Backend deployed link
 
 # https://server-monks-backend.herokuapp.com/
+
+# Tech Stack
+
+- React
+- Redux
+- Material UI
+- NodeJS
+- Web RTC
+- Web Sockets
+- Express
+- MongoDB
+- Rest API
