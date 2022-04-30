@@ -27,10 +27,10 @@ export const CardDetails = () => {
   const [sub, SetSub] = useState(false);
 
   const { user } = useSelector((store) => store.auth);
-  console.log("userr", user);
+  // console.log("userr", user);
 
   const { singleClub } = useSelector((store) => store.club);
-  console.log("singleClub", singleClub);
+  // console.log("singleClub", singleClub);
 
   useEffect(() => {
     SetUserData(JSON.parse(localStorage.getItem("UserData")));
@@ -113,8 +113,8 @@ export const CardDetails = () => {
                   () => ({ "&:hover": { color: "black" } }),
                 ]}
                 onClick={() => {
-                  handleSuscribe();
                   handeSub();
+                  handleSuscribe();
                 }}
               >
                 Join Club
@@ -136,10 +136,11 @@ export const CardDetails = () => {
             ) : (
               <Button disabled>join</Button>
             )}
+
           </Box>
-          <Box sx={{ mt: "40px" }}>
+          {/* <Box sx={{ mt: "40px" }}>
             <Typography variant="h6">Creator - {singleClub.creator_id.firstName}</Typography>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
       <ToastContainer />

@@ -23,7 +23,7 @@ export const Home = () => {
 
   const { clubList, loding, error } = useSelector((store) => store.club);
   const stored = useSelector((store) => store.club);
-  console.log("stored", stored);
+  // console.log("stored", stored);
 
   const checking = useSelector((store) => store.club);
   // console.log("checking", checking);

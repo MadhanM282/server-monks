@@ -18,7 +18,7 @@ export const GetClub = (id, setData) => (dispatch) => {
   axios
     .get(`https://server-monks-backend.herokuapp.com/single/${id}`)
     .then(({ data }) => {
-      console.log("data", data);
+      // console.log("data", data);
       setData(data);
     });
 };

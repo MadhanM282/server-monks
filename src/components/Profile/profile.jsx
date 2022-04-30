@@ -27,7 +27,7 @@ function Profile(props) {
   const s = useSelector((store) => store.auth);
   // console.log("store", s);
   const user = JSON.parse(localStorage.getItem("UserData"));
-  console.log("user:", user);
+  // console.log("user:", user);
 
   const [data, SetData] = useState([]);
   
@@ -37,7 +37,7 @@ function Profile(props) {
     axios
       .get(`https://server-monks-backend.herokuapp.com/clubs/${id}`)
       .then(({ data }) => {
-        console.log("data", data);
+        // console.log("data", data);
         SetData(data);
       });
   }, []);
