@@ -85,10 +85,10 @@ export const CardDetails = () => {
             boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px",
           }}
         >
-          <h1 style={{ marginTop: "10px" }}>{singleClub.club_title}</h1>
+          <h2 style={{ marginTop: "10px" }}>{singleClub.club_title}</h2>
           <Typography
             sx={{ height: "auto", mt: 4 }}
-            variant="h5"
+            variant="h6"
             color="text.secondary"
           >
             {singleClub.description}
@@ -126,9 +126,9 @@ export const CardDetails = () => {
               <Button disabled>join</Button>
             )}
           </Box>
-          {/* <Box sx={{ mt: "40px" }}>
-            <Typography variant="h5">Creator-{singleClub.creator_id.firstName}</Typography>
-          </Box> */}
+          <Box sx={{ mt: "40px" }}>
+            <Typography variant="h6">Creator - {singleClub.creator_id.firstName}</Typography>
+          </Box>
         </Box>
       </Box>
       <ToastContainer />

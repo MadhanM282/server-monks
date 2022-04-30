@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfileCard.css";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
 import ResponsiveAppBar from "../Navbar/Navbar";
+import axios from "axios";
 function Profile(props) {
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
@@ -22,6 +28,21 @@ function Profile(props) {
   console.log("store", s);
   const user = JSON.parse(localStorage.getItem("UserData"));
   console.log("user:", user);
+
+  const [data, SetData] = useState([]);
+  
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+    axios
+      .get(`https://server-monks-backend.herokuapp.com/clubs/${id}`)
+      .then(({ data }) => {
+        console.log("data", data);
+        SetData(data);
+      });
+  }, []);
+
+
   return (
     <div>
       <ResponsiveAppBar />
@@ -91,18 +112,45 @@ function Profile(props) {
             {name} <span className="normal-text"></span>
           </h1>
           <h2 className="normal-text">{user.email}</h2>
-          <div className="social-container">
-            <div className="followers">
-              {/* <h1 className="bold-text">2</h1>
-              <h2 className="smaller-text">Followers</h2> */}
-            </div>
-            {/* <div className="likes">
-              <h1 className="bold-text">{user.suscribed_ids.length}</h1>
-              <h4 >Subscribed</h4>
-            </div> */}
-            <div className="photos">
-            </div>
-          </div>
+          <Box sx={{border:0,p:3,display: "flex",justifyContent:"space-evenly"}}>
+            <Box sx={{ border: 0, width: "40%",display: "flex",justifyContent:"space-around"}}>
+              <Typography
+                variant="p"
+                noWrap
+                component="div"
+                sx={{ border: 0, color: "#545454", fontWeight: "bold"  } }
+              >
+               My Clubs
+              </Typography>
+              <Typography
+                variant="p"
+                noWrap
+                component="div"
+                sx={{ border: 0, color: "#545454", fontWeight: "bold"  }}
+              >
+                {data.length}
+              </Typography>
+            </Box>
+            <Box sx={{ border: 0, display: "flex",width:"40%", justifyContent: "space-around" }}>
+              <Typography
+                variant="p"
+                noWrap
+                component="div"
+                sx={{ border: 0,fontWeight: "bold" ,color: "#545454" }}
+              >
+                Subscribed
+              </Typography>
+              <Typography
+                variant="p"
+                noWrap
+                component="div"
+                sx={{ border: 0, color: "#545454", fontWeight: "bold" }}
+              >
+                {user.suscribed_ids.length}
+              </Typography>
+            </Box>
+          </Box>
+         
         </div>
       </div>
     </div>
