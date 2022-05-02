@@ -7,14 +7,7 @@ import { clubHomeReducer } from "./Home/clubHomeReducer";
 import { registerReducer } from "./register/registerReducer";
 import { RwtReducer } from "./Rtc/reducer";
 
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__()
-    : compose;
-
 const middleware = [thunk];
-
-const enhancer = composeEnhancers(applyMiddleware(...middleware));
 
 const rootReducer = combineReducers({
   auth: AuthReducer,

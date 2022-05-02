@@ -19,4 +19,3 @@ This is a club management system where people can interact and chat with each ot
 - Express
 - MongoDB
 - Rest API
-
