@@ -7,8 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-        "***",
+      clientID: "***",
       clientSecret: "***",
       callbackURL:
         "https://server-monks-backend.herokuapp.com/auth/google/callback",

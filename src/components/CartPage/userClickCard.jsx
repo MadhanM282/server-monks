@@ -136,7 +136,6 @@ export const CardDetails = () => {
             ) : (
               <Button disabled>join</Button>
             )}
-
           </Box>
           {/* <Box sx={{ mt: "40px" }}>
             <Typography variant="h6">Creator - {singleClub.creator_id.firstName}</Typography>

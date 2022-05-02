@@ -30,7 +30,6 @@ function Profile(props) {
   // console.log("user:", user);
 
   const [data, SetData] = useState([]);
-  
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -41,7 +40,6 @@ function Profile(props) {
         SetData(data);
       });
   }, []);
-
 
   return (
     <div>
@@ -112,31 +110,52 @@ function Profile(props) {
             {name} <span className="normal-text"></span>
           </h1>
           <h2 className="normal-text">{user.email}</h2>
-          <Box sx={{border:0,p:3,display: "flex",justifyContent:"space-evenly"}}>
-            <Box sx={{ border: 0, width: "40%",display: "flex",justifyContent:"space-around"}}>
+          <Box
+            sx={{
+              border: 0,
+              p: 3,
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Box
+              sx={{
+                border: 0,
+                width: "40%",
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
               <Typography
                 variant="p"
                 noWrap
                 component="div"
-                sx={{ border: 0, color: "#545454", fontWeight: "bold"  } }
+                sx={{ border: 0, color: "#545454", fontWeight: "bold" }}
               >
-               My Clubs
+                My Clubs
               </Typography>
               <Typography
                 variant="p"
                 noWrap
                 component="div"
-                sx={{ border: 0, color: "#545454", fontWeight: "bold"  }}
+                sx={{ border: 0, color: "#545454", fontWeight: "bold" }}
               >
                 {data.length}
               </Typography>
             </Box>
-            <Box sx={{ border: 0, display: "flex",width:"40%", justifyContent: "space-around" }}>
+            <Box
+              sx={{
+                border: 0,
+                display: "flex",
+                width: "40%",
+                justifyContent: "space-around",
+              }}
+            >
               <Typography
                 variant="p"
                 noWrap
                 component="div"
-                sx={{ border: 0,fontWeight: "bold" ,color: "#545454" }}
+                sx={{ border: 0, fontWeight: "bold", color: "#545454" }}
               >
                 Subscribed
               </Typography>
@@ -150,7 +169,6 @@ function Profile(props) {
               </Typography>
             </Box>
           </Box>
-         
         </div>
       </div>
     </div>
